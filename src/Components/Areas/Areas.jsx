@@ -16,7 +16,6 @@ import SortIcon from '@mui/icons-material/Sort';
 import Brands from "../Brands/Brands";
 import Footer from "../Footer/Footer";
 import UserContext from '../../context/userContext';
-import { YMaps, Map } from "react-yandex-maps";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
