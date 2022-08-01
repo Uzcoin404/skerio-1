@@ -1,0 +1,51 @@
+#settings {
+  width: 100%;
+  height: 100%;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin-left: 10px;
+  .title {
+    text-align: center;
+    align-items: center;
+    padding-top: 30px;
+    h2 {
+      font-weight: 700;
+      line-height: 29.26px;
+      font-size: 24px;
+    }
+  }
+  .avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    img {
+      width: 150px;
+      height: 150px;
+      text-align: center;
+    }
+  }
+  .setting-wrap {
+    padding: 100px 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .save-btn {
+    text-align: center;
+    justify-content: center;
+    .button {
+      background: #bf0000;
+      color: #fff;
+      padding: 0.5rem 4rem;
+      font-weight: 600;
+      line-height: 20px;
+      font-size: 20px;
+    }
+    .clicked {
+      background: transparent !important;
+      border: 0.5px solid rgba(0, 0, 0, 0.5) !important;
+      padding: 0.5rem 4rem;
+    }
+  }
+}

@@ -1,0 +1,173 @@
+#store {
+  width: 100%;
+  background-color: #fff;
+  .store-title {
+    padding: 50px 100px;
+    h2 {
+      font-family: Montserrat;
+      font-style: Bold;
+      font-size: 40px;
+      line-height: 49px;
+      line-height: 100%;
+      font-weight: 700;
+    }
+  }
+
+  .cards {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .store-card {
+      width: 350px;
+      height: 350px;
+      position: relative;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      margin: 50px 20px !important;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.45);
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+      }
+      .card-top-icon {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        img {
+          height: 45px;
+        }
+        .liked {
+          color: #bf0000;
+          font-size: 2rem;
+          &.unliked {
+            color: #000;
+          }
+        }
+        .discount {
+          position: absolute;
+          background: rgb(221, 120, 63);
+          color: #fff;
+          padding: 0.5rem 1rem;
+          right: -10px;
+          top: 220px;
+          overflow: auto !important;
+          border-top-left-radius: 3px;
+          border-bottom-left-radius: 3px;
+        }
+      }
+      .card-img {
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        height: 310px;
+        img {
+          height: 220px;
+          transition: transform 1s;
+          -webkit-transition: all 0.5s ease;
+          -moz-transition: all 0.5s ease;
+          -ms-transition: all 0.5s ease;
+          -o-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+          object-fit: contain;
+          &:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+          }
+        }
+      }
+      .card-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #bf0000;
+        padding: 5px;
+        height: auto;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        .club-name {
+          h4 {
+            font-family: Montserrat;
+            color: #fff;
+            line-height: 22px;
+            font-size: 18px;
+            font-weight: 500;
+          }
+          p {
+            color: white;
+            font-family: Montserrat;
+            color: #fff;
+            line-height: 22px;
+            font-size: 18px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+  .slider-handler {
+    height: 10px;
+    width: 150px;
+    background: #dcdcdc;
+    margin-left: 100px;
+    margin-top: 50px;
+    position: relative;
+    border-radius: 3px;
+    .handler {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 33%;
+      height: 100%;
+      background-color: #bf0000;
+      border-radius: 3px;
+    }
+  }
+}
+@media (max-width: 899px) {
+  #store {
+    .cards {
+      width: 100%;
+      .store-card {
+        width: 280px !important;
+        height: 350px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+        margin: 50px 35px !important;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+      }
+    }
+    .slider-handler {
+      margin-left: 50px;
+    }
+  }
+}

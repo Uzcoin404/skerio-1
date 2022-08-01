@@ -1,0 +1,814 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat')
+
+*
+    font-family: 'Montserrat'
+    padding: 0
+    margin: 0
+
+    body
+        .table
+            
+            .tableFilter
+                width: 100%
+                display: flex
+                justify-content: space-around
+                padding-top: 120px
+                .selectFilter
+                    .cupFilter
+                        cursor: pointer
+                        background-color: transparent
+                        width: auto
+                        margin: 32px 100px
+                        border: none
+                        font-weight: 600
+                        font-size: 20px
+                        line-height: 24px
+                        color: #BF0000
+                        option
+                            color: #4B4B4B
+
+                    .yearFilter
+                        cursor: pointer
+                        background-color: transparent
+                        border: none
+                        width: 122px
+                        font-weight: 600
+                        font-size: 20px
+                        line-height: 24px
+                        color: #BF0000
+                        option
+                            color: #4B4B4B
+
+                a
+                    text-decoration: none
+                    color: black
+                .statisticFilter
+                    width: 40%
+                    display: flex
+                    align-items: center
+                    justify-content: space-evenly
+                    margin-top: 32px
+                    margin-bottom: 32px
+                    font-weight: 600
+                    font-size: 18px
+                    line-height: 22px
+                    text-decoration: none
+                    span
+                        cursor: pointer
+                        text-decoration: none
+                        margin-right: 50px
+                    .active
+                        cursor: pointer
+                        color: #BF0000
+                .searchInput
+                    cursor: pointer
+                    font-size: 16px
+                    width: 200px
+                    height: 25px
+                    border: none
+                    background: transparent
+                    border-bottom: 1px solid #000000a8
+                    padding: 5px 10px
+                    margin: 0 10px
+                    display: none
+                    transform: translateX(300px)
+                .searchPng
+                    cursor: pointer
+                    margin-right: 100px
+                .searchClose
+                    display: none
+                    cursor: pointer
+                    width: 30px
+                    svg
+                        width: 30px
+                        display: none
+
+            .statTable
+                .table
+                    background-color: transparent
+                    margin: 32px 100px
+
+                    thead
+                        color: #646363
+                        tr
+                            display: flex
+                            .table-name
+                                padding-left: 124px
+                                font-weight: 700
+                                font-size: 24px
+                                text-align: left
+                                width: 500px
+                            .table-team
+                                text-align: center
+                                font-size: 24px
+                                width: 300px
+                                padding-right: 160px
+                                padding-left: 25px
+                            .table-goal,
+                            .table-goalmatch,
+                            .table-games
+                                font-size: 18px
+                            .table-goal,
+                            .table-games
+                                text-align: center
+                                width: 124px
+                            .table-goalmatch
+                                width: 180px
+
+                    #post,
+                    tbody
+                        tr
+                            text-align: center
+                            display: flex
+                            align-items: flex-end
+                            td
+                                align-items: flex-end
+                                display: flex
+                                height: 100px
+                            .id-table
+                                display: flex
+                                align-items: flex-end
+                                width: 10px
+                                height: 29px
+                                font-style: normal
+                                font-weight: 700
+                                font-size: 24px
+
+                            .name-img-table
+                                width: 700px
+                                display: flex
+                                .name-png
+                                    margin-left: 20px
+                                    width: 70px
+                                .name-img
+                                    width: 590px
+                                    height: 100%
+                                    display: flex
+                                    align-items: center
+                                    text-align: left
+                                    margin-left: 25px
+                                    font-weight: 600
+                                    font-size: 20px
+                            .team-table
+                                display: flex
+                                justify-content: row
+                                align-items: center
+                                width: 400px
+                                .team-name
+                                    font-style: normal
+                                    font-weight: 600
+                                    font-size: 20px
+                                .team-png
+                                    margin: 0px 10px
+                                    width: 40px
+                            .goal-table,
+                            .games-table
+                                font-weight: 600
+                                font-size: 16px
+                                width: 124px
+                                display: flex
+                                align-items: center
+                                justify-content: center
+                                text-align: center
+                            .goal-match-table
+                                align-items: center
+                                font-weight: 600
+                                font-size: 16px
+                                width: 180px
+                                display: flex
+                                justify-content: center
+                    #post
+                        display: none
+                    .seeMoreTable
+                        display: flex
+                        justify-content: center
+                        .seeMoreTableText
+                            width: 100%
+                            text-align: center
+                            cursor: pointer
+                            font-weight: 700
+                            font-size: 28px
+                        .seeMoreTableTextClose
+                            width: 100%
+                            text-align: center
+                            cursor: pointer
+                            font-size: 28px
+                            font-weight: 700
+                            color: black
+                            display: none
+                
+    @media ( max-width: 1440px )
+        body
+            .table
+
+                .tableFilter
+                    flex-direction: row
+                    display: flex
+                    justify-content: space-evenly
+                    .selectFilter
+                        width: 40%
+                        display: flex
+                        .cupFilter
+                            width: 100px
+                            font-size: 20px
+                            margin: 10px
+                        .yearFilter
+                            width: 80px
+                            font-size: 20px
+                            margin: 10px
+
+                    .statisticFilter
+                        width: 50%
+                        font-size: 18px
+                        margin: 0
+                        display: flex
+                        align-items: center
+                        justify-content: space-around
+                        .searchPng
+                            margin: 0
+                            width: 20px
+                        span
+                            margin: 0
+                .statTable
+                    .table
+                        margin: 15px 55px
+                        thead
+                            tr
+                                display: flex
+                                align-items: center
+                                .table-goal,
+                                .table-games,
+                                .table-goalmatch
+                                    font-size: 18px
+                                .table-name
+                                    font-size: 24px
+                                    padding: 0
+                                    margin-left: 85px
+                                    width: 275px
+                                .table-team
+                                    font-size: 24px
+                                    padding: 0
+                                    padding-left: 0px
+                                    padding-right: 70px
+                                    width: 300px
+                                .table-goal
+
+                                    margin-left: 0px
+                                    width: 180px
+                                .table-games
+                                    width: 180px
+                                .table-goalmatch
+                                    width: 180px
+                        tbody
+                            tr
+                                .id-table
+                                    font-size: 24px
+                                .id-table,
+                                .name-img-table,
+                                .team-table,
+                                .goal-table,
+                                .games-table,
+                                .goal-match-table
+                                    height: 75px
+                                    font-size: 20px
+                                .name-img-table
+                                    width: 400px
+                                    margin-right: 20px
+                                    .name-png
+                                        margin: 0 0 0 10px
+                                        width: 50px
+                                    .name-img
+                                        margin: 0 0 0 20px
+                                        font-size: 20px
+                                        color: black
+                                .team-table
+                                    width: 300px
+                                    .team-png
+                                        width: 30px
+                                    .team-name
+                                        font-size: 20px
+                                .goal-table
+                                    width: 180px
+                                    font-size: 16px
+                                .games-table
+                                    font-size: 16px
+                                    width: 180px
+                                .goal-match-table
+                                    width: 180px
+                        .seeMoreTable
+                            width: 100%
+                            .seeMoreTableText,
+                            .seeMoreTableTextClose
+                                font-size: 25px
+    @media ( max-width: 1024px )
+        body
+            .table
+
+                .nav
+                    display: none
+                .tableFilter
+                    flex-direction: row
+                    display: flex
+                    justify-content: space-evenly
+                    .selectFilter
+                        width: 40%
+                        display: flex
+                        .cupFilter
+                            width: 80px
+                            font-size: 14px
+                            margin: 5px
+                        .yearFilter
+                            width: 70px
+                            font-size: 14px
+                            margin: 5px
+
+                    .statisticFilter
+                        width: 50%
+                        font-size: 14px
+                        margin: 0
+                        display: flex
+                        align-items: center
+                        justify-content: space-around
+                        .searchPng
+                            margin: 0
+                            width: 20px
+                        span
+                            margin: 0
+                .statTable
+                    .table
+                        margin: 20px 50px
+                        thead
+                            tr
+                                display: flex
+                                align-items: center
+                                .table-name,
+                                .table-team,
+                                .table-goal,
+                                .table-games,
+                                .table-goalmatch
+                                    font-size: 16px
+                                .table-name
+                                    padding: 0
+                                    margin-left: 62px
+                                    width: 300px
+                                .table-team
+                                    padding: 0
+                                    padding-left: 22px
+                                    width: 120px
+                                .table-goal
+
+                                    margin-left: 80px
+                                    width: 100px
+                                .table-games
+                                    width: 120px
+                                .table-goalmatch
+                                    width: 120px
+                        tbody
+                            tr
+                                .id-table
+                                    margin-right: 1%
+                                .id-table,
+                                .name-img-table,
+                                .team-table,
+                                .goal-table,
+                                .games-table,
+                                .goal-match-table
+                                    height: 45px
+                                    font-size: 14px
+                                .name-img-table
+                                    width: 345px
+                                    margin-right: 20px
+                                    .name-png
+                                        margin: 0 0 0 5px
+                                        width: 30px
+                                    .name-img
+                                        margin: 0 0 0 10px
+                                        font-size: 14px
+                                        color: black
+                                .team-table
+                                    width: 20%
+                                    .team-png
+                                        width: 20px
+                                    .team-name
+                                        font-size: 12px
+                                .goal-table
+                                    width: 120px
+                                .games-table
+                                    width: 120px
+                                .goal-match-table
+                                    width: 120px
+                        .seeMoreTable
+                            width: 100%
+                            .seeMoreTableText,
+                            .seeMoreTableTextClose
+                                font-size: 20px
+    @media ( max-width: 768px )
+        body
+            .table
+
+                .nav
+                    display: none
+                .tableFilter
+                    flex-direction: row
+                    display: flex
+                    justify-content: space-evenly
+                    .selectFilter
+                        width: 40%
+                        display: flex
+                        .cupFilter
+                            width: 80px
+                            font-size: 14px
+                            margin: 5px
+                        .yearFilter
+                            width: 70px
+                            font-size: 14px
+                            margin: 5px
+
+                    .statisticFilter
+                        width: 80%
+                        font-size: 14px
+                        margin: 0
+                        display: flex
+                        align-items: center
+                        justify-content: space-around
+                        .searchPng
+                            margin: 0
+                            width: 20px
+                        .searchClose
+                            width: 20px
+                        .searchInput
+                            height: 20px
+                            font-size: 14px
+                        span
+                            margin: 10px
+                .statTable
+                    .table
+                        margin: 15px 40px
+                        thead
+                            tr
+                                display: flex
+                                align-items: center
+                                .table-name,
+                                .table-team,
+                                .table-goal,
+                                .table-games,
+                                .table-goalmatch
+                                    font-size: 14px
+                                .table-name
+                                    padding: 0
+                                    margin-left: 54px
+                                    width: 250px
+                                .table-team
+                                    padding: 0
+                                    padding-left: 22px
+                                    width: 120px
+                                .table-goal
+
+                                    margin-left: 80px
+                                    width: 90px
+                                .table-games
+                                    width: 120px
+                                .table-goalmatch
+                                    width: 90px
+                        tbody
+                            tr
+                                .id-table,
+                                .name-img-table,
+                                .team-table,
+                                .goal-table,
+                                .games-table,
+                                .goal-match-table
+                                    height: 45px
+                                    font-size: 12px
+                                .name-img-table
+                                    width: 300px
+                                    margin-right: 20px
+                                    .name-png
+                                        margin: 0 0 0 5px
+                                        width: 30px
+                                    .name-img
+                                        margin: 0 0 0 10px
+                                        font-size: 10px
+                                        color: black
+                                .team-table
+                                    width: 30%
+                                    .team-png
+                                        width: 20px
+                                    .team-name
+                                        font-size: 12px
+                                .goal-table
+                                    width: 120px
+                                .games-table
+                                    width: 120px
+                                .goal-match-table
+                                    width: 120px
+                        .seeMoreTable
+                            width: 100%
+                            .seeMoreTableText,
+                            .seeMoreTableTextClose
+                                font-size: 18px
+    @media ( max-width: 700px )
+        body
+            .table
+
+                .nav
+                    display: none
+                .tableFilter
+                    flex-direction: row
+                    display: flex
+                    justify-content: space-evenly
+                    .selectFilter
+                        width: 40%
+                        display: flex
+                        .cupFilter
+                            width: 68px
+                            font-size: 10px
+                            margin: 5px
+                        .yearFilter
+                            width: 50px
+                            font-size: 10px
+                            margin: 5px
+
+                    .statisticFilter
+                        width: 50%
+                        font-size: 12px
+                        margin: 0
+                        display: flex
+                        align-items: center
+                        justify-content: space-around
+                        .searchPng
+                            display: none
+                        span
+                            margin: 0
+                .statTable
+                    .table
+                        margin: 15px 30px
+                        thead
+                            tr
+                                display: flex
+                                align-items: center
+                                .table-name,
+                                .table-team,
+                                .table-goal,
+                                .table-games,
+                                .table-goalmatch
+                                    font-size: 14px
+                                .table-name
+                                    padding: 0
+                                    margin-left: 54px
+                                    width: 200px
+                                .table-team
+                                    display: none
+                                    width: 50px
+                                .table-goal
+
+                                    margin-left: 80px
+                                    width: 100px
+                                .table-games
+                                    width: 100px
+                                .table-goalmatch
+                                    width: 100px
+                        tbody
+                            tr
+                                .id-table,
+                                .name-img-table,
+                                .team-table,
+                                .goal-table,
+                                .games-table,
+                                .goal-match-table
+                                    height: 45px
+                                    font-size: 12px
+                                .name-img-table
+                                    width: 300px
+                                    margin-right: 20px
+                                    .name-png
+                                        margin: 0 0 0 5px
+                                        width: 30px
+                                    .name-img
+                                        margin: 0 0 0 10px
+                                        font-size: 10px
+                                        color: black
+                                .team-table
+                                    width: 0px
+                                    .team-png
+                                        display: none
+                                    .team-name
+                                        margin-left: -275px
+                                        margin-top: 25px
+                                        font-size: 9px
+                                        color: #646464a6
+                                .goal-table
+                                    width: 100px
+                                .games-table
+                                    width: 100px
+                                .goal-match-table
+                                    width: 100px
+                        .seeMoreTable
+                            width: 100%
+                            .seeMoreTableText,
+                            .seeMoreTableTextClose
+                                font-size: 15px
+
+    @media ( max-width: 360px )
+        body
+            .table
+
+                .nav
+                    display: none
+                .tableFilter
+                    flex-direction: row
+                    display: flex
+                    justify-content: space-evenly
+                    .selectFilter
+                        width: 40%
+                        display: flex
+                        .cupFilter
+                            width: 68px
+                            font-size: 10px
+                            margin: 5px
+                        .yearFilter
+                            width: 50px
+                            font-size: 10px
+                            margin: 5px
+
+                    .statisticFilter
+                        width: 50%
+                        font-size: 10px
+                        margin: 0
+                        display: flex
+                        align-items: center
+                        justify-content: space-around
+                        .searchPng
+                            display: none
+                        span
+                            margin: 0
+                .statTable
+                    .table
+                        margin: 15px 20px
+                        thead
+                            tr
+                                display: flex
+                                align-items: center
+                                .table-name,
+                                .table-team,
+                                .table-goal,
+                                .table-games,
+                                .table-goalmatch
+                                    font-size: 8px
+                                .table-name
+                                    padding: 0
+                                    margin-left: 54px
+                                    width: 45px
+                                .table-team
+                                    display: none
+                                    width: 100px
+                                .table-goal
+                                    margin-left: 80px
+                                    width: 80px
+                                .table-games
+                                    width: 50px
+                                .table-goalmatch
+                                    display: none
+                                    width: 50px
+                        tbody
+                            tr
+                                .id-table,
+                                .name-img-table,
+                                .team-table,
+                                .goal-table,
+                                .games-table,
+                                .goal-match-table
+                                    height: 45px
+                                    font-size: 8px
+                                .name-img-table
+                                    width: 150px
+                                    margin-right: 20px
+                                    .name-png
+                                        margin: 0 0 0 5px
+                                        width: 30px
+                                    .name-img
+                                        margin: 0 0 0 10px
+                                        font-size: 8px
+                                        color: black
+                                .team-table
+                                    width: 0px
+                                    .team-png
+                                        display: none
+                                    .team-name
+                                        margin-left: -125px
+                                        margin-top: 20px
+                                        font-size: 8px
+                                        color: #646464a6
+                                .goal-table
+                                    width: 80px
+                                .games-table
+                                    width: 50px
+                                .goal-match-table
+                                    display: none
+                                    width: 50px
+                        .seeMoreTable
+                            width: 100%
+                            .seeMoreTableText,
+                            .seeMoreTableTextClose
+                                font-size: 15px
+    @media ( max-width: 320px )
+        body
+            .table
+
+                .tableFilter
+                    flex-direction: row
+                    display: flex
+                    justify-content: space-evenly
+                    .selectFilter
+                        width: 40%
+                        display: flex
+                        .cupFilter
+                            width: 68px
+                            font-size: 10px
+                            margin: 5px
+                        .yearFilter
+                            width: 50px
+                            font-size: 10px
+                            margin: 5px
+
+                    .statisticFilter
+                        width: 50%
+                        font-size: 10px
+                        margin: 0
+                        display: flex
+                        align-items: center
+                        justify-content: space-around
+                        .searchPng
+                            display: none
+                        span
+                            margin: 0
+                .statTable
+                    width: 80%
+                    .table
+                        margin: 15px
+                        thead
+                            tr
+                                display: flex
+                                align-items: center
+                                .table-name,
+                                .table-team,
+                                .table-goal,
+                                .table-games,
+                                .table-goalmatch
+                                    font-size: 8px
+                                .table-name
+                                    padding: 0
+                                    margin-left: 54px
+                                    width: 30px
+                                .table-team
+                                    display: none
+                                    width: 0px
+                                .table-goal
+                                    margin-left: 80px
+                                    width: 80px
+                                .table-games
+                                    width: 30px
+                                .table-goalmatch
+                                    display: none
+                                    width: 0px
+                        tbody
+                            tr
+                                .id-table,
+                                .name-img-table,
+                                .team-table,
+                                .goal-table,
+                                .games-table,
+                                .goal-match-table
+                                    height: 45px
+                                    font-size: 8px
+                                .name-img-table
+                                    width: 150px
+                                    margin-right: 20px
+                                    .name-png
+                                        margin: 0 0 0 5px
+                                        width: 30px
+                                    .name-img
+                                        margin: 0 0 0 10px
+                                        font-size: 8px
+                                        color: black
+                                .team-table
+                                    width: 0px
+                                    .team-png
+                                        display: none
+                                    .team-name
+                                        margin-left: -125px
+                                        margin-top: 20px
+                                        font-size: 8px
+                                        color: #646464a6
+                                .goal-table
+                                    width: 50px
+                                .games-table
+                                    width: 60px
+                                .goal-match-table
+                                    display: none
+                                    width: 50px
+                        .seeMoreTable
+                            width: 100%
+                            .seeMoreTableText,
+                            .seeMoreTableTextClose
+                                font-size: 15px

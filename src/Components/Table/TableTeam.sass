@@ -1,0 +1,905 @@
+.TableTeam
+    .tableFilter
+        width: 100%
+        display: flex
+        justify-content: space-around
+        padding-top: 120px
+        .selectFilter
+            .cupFilter
+                cursor: pointer
+                background-color: transparent
+                width: auto
+                margin: 32px 100px
+                border: none
+                font-weight: 600
+                font-size: 20px
+                line-height: 24px
+                color: #BF0000
+                option
+                    color: #4B4B4B
+
+            .yearFilter
+                cursor: pointer
+                background-color: transparent
+                border: none
+                width: 122px
+                font-weight: 600
+                font-size: 20px
+                line-height: 24px
+                color: #BF0000
+                option
+                    color: #4B4B4B
+
+        a
+            text-decoration: none
+            color: black
+        .statisticFilter
+            width: 40%
+            display: flex
+            align-items: center
+            justify-content: space-evenly
+            margin-top: 32px
+            margin-bottom: 32px
+            font-weight: 600
+            font-size: 18px
+            line-height: 22px
+            text-decoration: none
+            span
+                cursor: pointer
+                text-decoration: none
+                margin-right: 50px
+            .active
+                cursor: pointer
+                color: #BF0000
+        .searchInput
+            cursor: pointer
+            font-size: 16px
+            width: 200px
+            height: 25px
+            border: none
+            background: transparent
+            border-bottom: 1px solid #bf0000
+            padding: 5px 10px
+            margin: 0 10px
+            display: none
+            transform: translateX(300px)
+            :focus
+                outline: none
+
+                    
+        .searchPng
+            cursor: pointer
+            margin-right: 100px
+        .searchClose
+            display: none
+            cursor: pointer
+            width: 30px
+            svg
+                width: 30px
+                display: none
+
+    .tableTeam
+        table
+            display: flex
+            flex-direction: column
+            margin: 65px 100px
+            thead
+                color: #646363
+
+                tr
+                    display: flex
+                    align-items: center
+
+                    .tbgoal,
+                    .tbgoalcon,
+                    .tbshots,
+                    .tbfouls,
+                    .tbyellow,
+                    .tbred
+                        text-align: center
+                        width: 200px
+                    .tbgoal
+                        .goal1
+                            display: block
+                        .goal2
+                            display: none
+
+                    .tbgoalcon
+                    .tbteam,
+                    .tbgoal,
+                    .tbgoalcon,
+                    .tbshots,
+                    .tbfouls,
+                    .tbyellow,
+                    .tbred
+                        font-weight: 600
+                        font-size: 18px
+                        .goal1
+                            display: block
+                        .goal2
+                            display: none
+                    .tbteam
+                        width: 300px
+                        margin-left: 95px
+                        margin-right: 100px
+                        font-size: 24px
+            #post
+                display: none
+            #post,
+            tbody
+                tr
+                    border-bottom: 2px solid #b3b3b3
+                    height: 75px
+                    display: flex
+                    align-items: center
+                    .tb_id
+                        font-size: 24px
+                        font-weight: 600
+                        width: 100px
+                    .tb_team
+                        width: 300px
+                        font-weight: 600
+                        font-size: 20px
+                        display: flex
+                        align-items: center
+                        margin-right: 100px
+                        .tb_team_img
+                            margin-right: 15px
+                            width: 35px
+                        .tb_team_text
+                            width: 220px
+                    .tb_goal,
+                    .tb_goalcon,
+                    .tb_shots,
+                    .tb_fouls,
+                    .tb_yellow,
+                    .tb_red
+                        font-weight: 600
+                        font-size: 16px
+                        width: 200px
+                        text-align: center
+            .seeMore
+                display: flex
+                justify-content: center
+                .seeMoreText
+                    width: 100%
+                    text-align: center
+                    cursor: pointer
+                    font-weight: 700
+                    font-size: 28px
+                .seeMoreTextClose
+                    width: 100%
+                    text-align: center
+                    cursor: pointer
+                    font-size: 28px
+                    font-weight: 700
+                    color: black
+                    display: none
+@media ( max-width: 1440px )
+    .TableTeam
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                display: flex
+                .cupFilter
+                    width: auto
+                    font-size: 20px
+                    margin: 10px
+                .yearFilter
+                    width: 80px
+                    font-size: 20px
+                    margin: 10px
+
+            .statisticFilter
+                width: 50%
+                font-size: 18px
+                margin: 0
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    margin: 0
+                    width: 20px
+                span
+                    margin: 0
+        .tableTeam
+            table
+                margin: 20px 60px
+                thead
+                    tr
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            font-size: 18px
+                            text-align: center
+                            width: 250px
+
+                        .tbteam,
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            font-weight: 600
+                            font-size: 18px
+                            .goal2
+                                display: none
+                            .goal1
+                                display: block
+                        .tbteam
+                            width: 380px
+                            margin-left: 95px
+                            margin-right: 10px
+                            font-size: 24px
+                tbody
+                    tr
+                        border-bottom: 2px solid #b3b3b3
+                        height: 60px
+                        display: flex
+                        align-items: center
+                        .tb_id
+                            font-size: 24px
+                            font-weight: 600
+                            width: 50px
+                            margin: 0px
+                        .tb_team
+                            width: 400px
+                            font-weight: 600
+                            font-size: 8px
+                            display: flex
+                            align-items: center
+                            margin: 0px
+                            .tb_team_img
+                                margin-right: 20px
+                            .tb_team_text
+                                font-size: 20px
+                                width: 250px
+                        .tb_goal,
+                        .tb_goalcon,
+                        .tb_shots,
+                        .tb_fouls,
+                        .tb_yellow,
+                        .tb_red
+                            font-weight: 600
+                            font-size: 16px
+                            width: 200px
+                            text-align: center
+
+                .seeMore
+                    padding-top: 20px
+                    display: flex
+                    justify-content: center
+                    .seeMoreText
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-weight: 700
+                        font-size: 28px
+                    .seeMoreTextClose
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-size: 28px
+                        font-weight: 700
+                        color: black
+                        display: none
+@media ( max-width: 1024px )
+    .TableTeam
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                display: flex
+                .cupFilter
+                    width: auto
+                    font-size: 16px
+                    margin: 10px
+                .yearFilter
+                    width: 80px
+                    font-size: 16px
+                    margin: 10px
+
+            .statisticFilter
+                width: 50%
+                font-size: 14px
+                margin: 0
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    margin: 0
+                    width: 20px
+                span
+                    margin: 0
+        .tableTeam
+            table
+                margin: 20px 60px
+
+                thead
+
+                    tr
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            color: #646363
+                            text-align: center
+                            width: 300px
+
+                        .tbteam,
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            color: #646363
+                            font-weight: 600
+                            font-size: 16px
+                            .goal2
+                                display: block
+                            .goal1
+                                display: none
+                        .tbteam
+                            width: 580px
+                            margin-left: 90px
+                            margin-right: 70px
+                            font-size: 20px
+                tbody
+                    tr
+                        border-bottom: 2px solid #b3b3b3
+                        height: 60px
+                        display: flex
+                        align-items: center
+                        .tb_id
+                            font-size: 24px
+                            font-weight: 600
+                            width: 80px
+                            margin: 0px
+                        .tb_team
+                            width: 400px
+                            font-weight: 600
+                            font-size: 8px
+                            display: flex
+                            align-items: center
+                            margin: 0px
+                            .tb_team_img
+                                margin-right: 20px
+                            .tb_team_text
+                                font-size: 20px
+                                width: 250px
+                        .tb_goal,
+                        .tb_goalcon,
+                        .tb_shots,
+                        .tb_fouls,
+                        .tb_yellow,
+                        .tb_red
+                            font-weight: 600
+                            font-size: 16px
+                            width: 200px
+                            text-align: center
+
+                .seeMore
+                    padding-top: 20px
+                    display: flex
+                    justify-content: center
+                    .seeMoreText
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-weight: 700
+                        font-size: 28px
+                    .seeMoreTextClose
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-size: 28px
+                        font-weight: 700
+                        color: black
+                        display: none
+@media ( max-width: 768px )
+    .TableTeam
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                display: flex
+                .cupFilter
+                    width: 80px
+                    font-size: 14px
+                    margin: 5px
+                .yearFilter
+                    width: 70px
+                    font-size: 14px
+                    margin: 5px
+
+            .statisticFilter
+                width: 80%
+                font-size: 14px
+                margin: 0
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    margin: 0
+                    width: 20px
+                .searchClose
+                    width: 20px
+                .searchInput
+                    height: 20px
+                    font-size: 14px
+                span
+                    margin: 10px
+        .tableTeam
+            table
+                margin: 20px 60px
+                thead
+                    tr
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            text-align: center
+                            width: 200px
+
+                        .tbteam,
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            font-weight: 600
+                            font-size: 16px
+                            .goal2
+                                display: block
+                            .goal1
+                                display: none
+                        .tbyellow,
+                        .tbred
+                            display: none
+                        .tbteam
+                            width: 580px
+                            margin-left: 65px
+                            margin-right: 70px
+                            font-size: 20px
+                tbody
+                    tr
+                        border-bottom: 2px solid #b3b3b3
+                        height: 60px
+                        display: flex
+                        align-items: center
+                        .tb_id
+                            font-size: 24px
+                            font-weight: 600
+                            width: 70px
+                            margin: 10px
+                        .tb_team
+                            width: 400px
+                            font-weight: 600
+                            font-size: 8px
+                            display: flex
+                            align-items: center
+                            margin: 0px
+                            .tb_team_img
+                                width: 30px
+                                margin-right: 20px
+                            .tb_team_text
+                                font-size: 18px
+                                width: 250px
+                        .tb_goal,
+                        .tb_goalcon,
+                        .tb_shots,
+                        .tb_fouls,
+                        .tb_yellow,
+                        .tb_red
+                            font-weight: 600
+                            font-size: 16px
+                            width: 200px
+                            text-align: center
+                        .tb_yellow,
+                        .tb_red
+                            display: none
+
+                .seeMore
+                    padding-top: 20px
+                    display: flex
+                    justify-content: center
+                    .seeMoreText
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-weight: 700
+                        font-size: 20px
+                    .seeMoreTextClose
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-size: 20px
+                        font-weight: 700
+                        color: black
+                        display: none
+@media ( max-width: 500px )
+    .TableTeam
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                display: flex
+                .cupFilter
+                    width: auto
+                    font-size: 13px
+                    margin: 10px
+                .yearFilter
+                    width: 80px
+                    font-size: 13px
+                    margin: 10px
+
+            .statisticFilter
+                width: 50%
+                font-size: 13px
+                margin: 10px
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    display: none
+                span
+                    margin: 0
+        .tableTeam
+            table
+                margin: 20px
+                thead
+                    tr
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            text-align: center
+                            width: 200px
+
+                        .tbteam,
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            font-weight: 600
+                            font-size: 14px
+                            .goal2
+                                display: block
+                            .goal1
+                                display: none
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            display: none
+                        .tbteam
+                            width: 350px
+                            margin-left: 95px
+                            margin-right: 0px
+                            font-size: 16px
+                tbody
+                    tr
+                        border-bottom: 2px solid #b3b3b3
+                        height: 60px
+                        display: flex
+                        align-items: center
+                        .tb_id
+                            font-size: 16px
+                            font-weight: 600
+                            width: 70px
+                            margin: 10px
+                        .tb_team
+                            width: 400px
+                            font-weight: 600
+                            display: flex
+                            align-items: center
+                            margin: 0px
+                            .tb_team_img
+                                width: 30px
+                                margin-right: 20px
+                            .tb_team_text
+                                font-size: 13px
+                                width: 150px
+                        .tb_goal,
+                        .tb_goalcon,
+                        .tb_shots,
+                        .tb_fouls,
+                        .tb_yellow,
+                        .tb_red
+                            font-weight: 600
+                            font-size: 14px
+                            width: 200px
+                            text-align: center
+                        .tb_shots,
+                        .tb_yellow,
+                        .tb_fouls,
+                        .tb_red
+                            display: none
+
+                .seeMore
+                    padding-top: 20px
+                    display: flex
+                    justify-content: center
+                    .seeMoreText
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-weight: 700
+                        font-size: 16px
+                    .seeMoreTextClose
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-size: 16px
+                        font-weight: 700
+                        color: black
+                        display: none
+@media ( max-width: 425px )
+    .TableTeam
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                display: flex
+                .cupFilter
+                    width: auto
+                    font-size: 13px
+                    margin: 10px
+                .yearFilter
+                    width: 80px
+                    font-size: 13px
+                    margin: 10px
+
+            .statisticFilter
+                width: 50%
+                font-size: 13px
+                margin: 10px
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    display: none
+                span
+                    margin: 0
+        .tableTeam
+            table
+                margin: 20px
+                thead
+                    tr
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            text-align: center
+                            width: 150px
+
+                        .tbteam,
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            font-weight: 600
+                            font-size: 14px
+                            .goal2
+                                display: block
+                            .goal1
+                                display: none
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            display: none
+                        .tbteam
+                            width: 350px
+                            margin-left: 95px
+                            margin-right: 0px
+                            font-size: 16px
+                tbody
+                    tr
+                        border-bottom: 2px solid #b3b3b3
+                        height: 60px
+                        display: flex
+                        align-items: center
+                        .tb_id
+                            font-size: 16px
+                            font-weight: 600
+                            width: 70px
+                            margin: 10px
+                        .tb_team
+                            width: 400px
+                            font-weight: 600
+                            display: flex
+                            align-items: center
+                            margin: 0px
+                            .tb_team_img
+                                width: 30px
+                                margin-right: 20px
+                            .tb_team_text
+                                font-size: 13px
+                                width: 150px
+                        .tb_goal,
+                        .tb_goalcon,
+                        .tb_shots,
+                        .tb_fouls,
+                        .tb_yellow,
+                        .tb_red
+                            font-weight: 600
+                            font-size: 14px
+                            width: 200px
+                            text-align: center
+                        .tb_shots,
+                        .tb_yellow,
+                        .tb_fouls,
+                        .tb_red
+                            display: none
+
+                .seeMore
+                    padding-top: 20px
+                    display: flex
+                    justify-content: center
+                    .seeMoreText
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-weight: 700
+                        font-size: 16px
+                    .seeMoreTextClose
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-size: 16px
+                        font-weight: 700
+                        color: black
+                        display: none
+@media ( max-width: 375px )
+    .TableTeam
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                display: flex
+                .cupFilter
+                    width: auto
+                    font-size: 10px
+                    margin: 5px
+                .yearFilter
+                    width: 80px
+                    font-size: 10px
+                    margin: 5px
+
+            .statisticFilter
+                width: 70%
+                font-size: 10px
+                margin: 10px
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    display: none
+                span
+                    margin: 0
+        .tableTeam
+            table
+                margin: 20px
+                thead
+                    tr
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            text-align: center
+                            width: 150px
+
+                        .tbteam,
+                        .tbgoal,
+                        .tbgoalcon,
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            font-weight: 600
+                            font-size: 12px
+                            .goal2
+                                display: block
+                            .goal1
+                                display: none
+                        .tbshots,
+                        .tbfouls,
+                        .tbyellow,
+                        .tbred
+                            display: none
+                        .tbteam
+                            width: 330px
+                            margin-left: 85px
+                            margin-right: 0px
+                            font-size: 14px
+                tbody
+                    tr
+                        border-bottom: 2px solid #b3b3b3
+                        height: 60px
+                        display: flex
+                        align-items: center
+                        .tb_id
+                            font-size: 16px
+                            font-weight: 600
+                            width: 70px
+                            margin: 10px
+                        .tb_team
+                            width: 400px
+                            font-weight: 600
+                            display: flex
+                            align-items: center
+                            margin: 0px
+                            .tb_team_img
+                                width: 30px
+                                margin-right: 20px
+                            .tb_team_text
+                                font-size: 13px
+                                width: 150px
+                        .tb_goal,
+                        .tb_goalcon,
+                        .tb_shots,
+                        .tb_fouls,
+                        .tb_yellow,
+                        .tb_red
+                            font-weight: 600
+                            font-size: 14px
+                            width: 200px
+                            text-align: center
+                        .tb_shots,
+                        .tb_yellow,
+                        .tb_fouls,
+                        .tb_red
+                            display: none
+
+                .seeMore
+                    padding-top: 20px
+                    display: flex
+                    justify-content: center
+                    .seeMoreText
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-weight: 700
+                        font-size: 16px
+                    .seeMoreTextClose
+                        width: 100%
+                        text-align: center
+                        cursor: pointer
+                        font-size: 16px
+                        font-weight: 700
+                        color: black
+                        display: none

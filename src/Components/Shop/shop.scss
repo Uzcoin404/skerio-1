@@ -1,0 +1,153 @@
+#shop {
+  padding-top: 76px;
+  .shop-header-img {
+    .filerButtons {
+      padding: 80px 0 20px 100px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .fil {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+          padding: 0.3rem 0.8rem;
+          border: 0.5px solid #c2c2c2;
+          margin: 0 5px;
+          &:hover {
+            background: #bf0000;
+            color: #fff;
+          }
+          &.activeBtn {
+            background: #bf0000;
+            color: #fff;
+          }
+        }
+        .box {
+          position: relative;
+          margin-left: 20px;
+        }
+        .input {
+          padding: 10px;
+          width: 45px;
+          height: 45px;
+          background: none;
+          border: 1px solid #bf0000;
+          border-radius: 50px;
+          box-sizing: border-box;
+          color: #000;
+          outline: none;
+          transition: all 0.3s ease;
+          background: #bf0000;
+          font-size: 0;
+        }
+        .box:hover input {
+          width: 300px;
+          background: #fff;
+          border-radius: 5px;
+          font-size: 22px;
+        }
+        .box i {
+          position: absolute;
+          top: 50%;
+          left: 22px;
+          transform: translate(-50%, -50%);
+          font-size: 26px;
+          color: #fff;
+          transition: 0.2s;
+        }
+        .box:hover i {
+          opacity: 0;
+          z-index: -1;
+        }
+      }
+
+      .busket {
+        position: fixed;
+        top: 25px;
+        right: 2rem;
+        z-index: 1002;
+        color: #bf0000;
+        padding: 0.8rem 1rem;
+        border-radius: 6%;
+        transition: all 0.5s ease;
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+@media (max-width: 893px) {
+  #shop {
+    .shop-header-img {
+      .filerButtons {
+        .busket {
+          position: fixed;
+          top: 21px;
+          right: 6.5rem;
+          z-index: 1002;
+          border-radius: 6%;
+          transition: all 0.5s ease;
+          &:hover {
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 430px) {
+  #shop {
+    padding-top: 50px;
+    .shop-header-img {
+      .filerButtons {
+        padding: 80px 0 20px 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .fil {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          .filBtns {
+            width: 100%;
+            button {
+              margin: 7px;
+            }
+          }
+          #filter {
+            font-size: 18px;
+            &:focus {
+              outline: none;
+            }
+          }
+          .box {
+            position: relative;
+            margin-left: 20px;
+          }
+          .input {
+            padding: 10px;
+          }
+          .box:hover input {
+            width: 220px;
+            background: #fff;
+            border-radius: 5px;
+            font-size: 22px;
+          }
+        }
+        .busket {
+          position: fixed;
+          top: 25px;
+          right: 6rem;
+          z-index: 1001;
+          color: #bf0000;
+          padding: 0.5rem;
+          border-radius: 6%;
+        }
+      }
+    }
+  }
+}

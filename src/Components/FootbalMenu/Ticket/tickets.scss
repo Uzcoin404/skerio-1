@@ -1,0 +1,130 @@
+#tickets {
+  background: #f8f8f8;
+  width: 100%;
+  height: auto;
+  .tickets-title {
+    padding: 50px 0 50px 100px;
+    h2 {
+      font-family: Montserrat;
+      font-style: Bold;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 49px;
+      line-height: 100%;
+    }
+  }
+  .tickets-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+    padding: 20px 0;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .card {
+      width: 370px;
+      height: auto;
+      padding: 10px 0;
+      background-color: #fff;
+      border-radius: 10px;
+      margin-left: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.25);
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.45);
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+      }
+      .card-img {
+        margin: 20px 0 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+          height: 100px;
+        }
+      }
+      .card-title {
+        h4 {
+          font-size: 20px;
+          line-height: 24px;
+          font-weight: 600;
+          margin: 26px 0 21px 0;
+        }
+      }
+      .card-desc {
+        p {
+          width: 238px;
+          font-weight: 400;
+          padding-bottom: 20px;
+        }
+      }
+      .clubs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        .club2 {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+  .slider-handler {
+    height: 10px;
+    width: 150px;
+    background: #dcdcdc;
+    margin-left: 100px;
+    margin-top: 50px;
+    position: relative;
+    border-radius: 3px;
+    .handler {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 33%;
+      height: 100%;
+      background-color: #bf0000;
+      border-radius: 3px;
+    }
+  }
+}
+@media (max-width: 899px) {
+  #tickets {
+    .tickets-title {
+      padding: 50px 0 50px 50px;
+      h2 {
+        font-family: Montserrat;
+        font-style: Bold;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 32px;
+        line-height: 100%;
+      }
+    }
+
+    .tickets-card {
+      .card {
+        margin-left: 10px !important;
+      }
+    }
+
+    .slider-handler {
+      margin-left: 50px;
+    }
+  }
+}

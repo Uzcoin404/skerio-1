@@ -1,0 +1,86 @@
+#allTickets {
+  .searchbar {
+    margin: 130px 100px 0 100px;
+    .box {
+      position: relative;
+      margin-left: 20px;
+    }
+    .input {
+      padding: 10px;
+      width: 45px;
+      height: 45px;
+      background: none;
+      border: 1px solid #bf0000;
+      border-radius: 50px;
+      box-sizing: border-box;
+      color: #000;
+      outline: none;
+      transition: all 0.3s ease;
+      background: #bf0000;
+      font-size: 0;
+    }
+    .box:hover input {
+      width: 300px;
+      background: #fff;
+      border-radius: 5px;
+      font-size: 22px;
+    }
+    .box i {
+      position: absolute;
+      top: 50%;
+      left: 22px;
+      transform: translate(-50%, -50%);
+      font-size: 26px;
+      color: #fff;
+      transition: 0.2s;
+    }
+    .box:hover i {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+  .cart-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin: 30px 100px 0 100px;
+    grid-gap: 20px;
+    .ticket-card {
+      width: 280px;
+      height: 350px;
+      border: 0.5px solid #c2c2c2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 8px;
+      box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.25);
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.45);
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+      }
+      .ticket-image {
+        img {
+          height: 200px;
+          object-fit: contain;
+        }
+      }
+      .albumContent {
+        margin-top: 50px;
+        .albumTitle {
+          span {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 15px;
+          }
+        }
+      }
+    }
+  }
+}
