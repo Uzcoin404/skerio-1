@@ -62,17 +62,11 @@
       align-items: center;
       margin-bottom: 40px;
       .map {
-        position: relative;
         width: 700px;
         height: 500px;
-        z-index: -1;
-      }
-      .block {
-        position: absolute;
-        width: 700px;
-        height: 500px;
-        z-index: +1;
-        background-color: transparent;
+        .ymaps{
+          width: 700px;
+        }
       }
       .area {
         width: 475px;

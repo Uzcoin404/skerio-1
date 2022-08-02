@@ -5,6 +5,7 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
+import { YMaps, Map, Placemark } from "react-yandex-maps";
 import FastfoodIcon from "@mui/icons-material/Fastfood";
 import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 import Brands from '../Brands/Brands';
@@ -14,6 +15,7 @@ import axios from "axios";
 import MapPicker from 'react-google-map-picker'
 import Areas from '../Areas/Areas';
 const DefaultZoom = 15;
+
 
 function Mapping() {
     const [defaultLocation, setDefaultLocation] = useState({ lat: 40, lng: 65 });
@@ -44,15 +46,15 @@ function Mapping() {
                         <h1>Go to Back</h1>
                     </Link>
                     <div className="about">
-                        <div className="block"></div>
                         <div className="map">
-                            <MapPicker
-                                zoom={zoom}
-                                mapTypeId="roadmap"
-                                style={{ weight: '700px', height: '500px' }}
-                                onChangeZoom={handleChangeZoom}
-                                defaultLocation={defaultLocation}
-                                apiKey='AIzaSyB8NHCF-5fMix0w2363RhC3V4vcyw8SHSM' />
+                            <YMaps>
+                                <div>
+                                    <Map width="700px"
+                                        height="500px" defaultState={{ center: [`${data?.lat}`, `${data?.lng}`], zoom: 10 }} >
+                                        <Placemark geometry={[data?.lat, data?.lng]} />
+                                    </Map>
+                                </div>
+                            </YMaps>
                         </div>
                         <div className="area">
                             <h1 className='area_title'>{data?.name}</h1>
