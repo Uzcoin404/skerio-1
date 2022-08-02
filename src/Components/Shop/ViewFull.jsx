@@ -34,19 +34,10 @@ function ViewFull({ current, addToCart, cart }) {
   const [login, setLogin] = useState("/login");
   const myToken = window.localStorage.getItem('token');
 
-  const [firstBtn, setFirstBtn] = useState(
-    <button onClick={() => checkIfLoggedIn(current.id)}>
-      {t("addCart")} < AddShoppingCartIcon style={{ color: "#fff" }} />
-    </button>
-  );
+  const [firstBtn, setFirstBtn] = useState({ t("addCart") });
 
   const handleSubmit = function () {
-    setFirstBtn(
-      <button button onClick={() => checkIfLoggedIn(current.id)}
-      >
-        {t("added")} < AddShoppingCartIcon style={{ color: "#fff" }} />
-      </button>
-    );
+    setFirstBtn({ t("added") });
 
     const handleSetTime = setTimeout(() => {
       setFirstBtn(firstBtn);
@@ -120,7 +111,10 @@ function ViewFull({ current, addToCart, cart }) {
             </p>
           </div>
           <div className="addToCart">
-            {firstBtn}
+            <button button onClick={() => checkIfLoggedIn(current.id)}
+            >
+              {firstBtn} < AddShoppingCartIcon style={{ color: "#fff" }} />
+            </button>
           </div>
         </div>
       </div>

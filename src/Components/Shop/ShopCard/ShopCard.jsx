@@ -41,7 +41,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
             .then(res => res.text())
             .then((res) => {
                 setrender(res);
-                console.log(res);
+                console.log('sd',res);
             })
             .catch(error => console.log('error', error));
 
