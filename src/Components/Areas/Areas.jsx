@@ -16,7 +16,6 @@ import SortIcon from '@mui/icons-material/Sort';
 import Brands from "../Brands/Brands";
 import Footer from "../Footer/Footer";
 import UserContext from '../../context/userContext';
-import { YMaps, Map } from "react-yandex-maps";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -40,7 +39,6 @@ export default function Areas() {
         setData(res.data.data);
         setData2(res.data.data);
         setRegion(res.data.data);
-        setSingleData(res.data.data)
       })
       .catch((err) => console.error(err));
 
@@ -64,10 +62,10 @@ export default function Areas() {
     const filtered = data2.filter(item => {
       if (e === "") {
         return item;
-      } else if (item.area_id === e) {
-        return item.area_id === e
-      } else if (item.area_id !== e) {
-        return setHasRegion("Xech qanday ma'lumot topilmadi");
+      } else if (item.area === e) {
+        return item.area === e;
+      } else if (item.area === "") {
+        setHasRegion("Xech qanday ma'lumot topilmadi");
       }
     });
     setRegion(filtered);
@@ -88,19 +86,6 @@ export default function Areas() {
       setGetState(false);
     }
   }
-  const [singleData, setSingleData] = useState([])
-
-  const getAsingleItem = function (e) {
-    const filtered = data1.filter((item) => {
-      if (item.id === e) {
-        return item.id === e;
-      } else {
-        return null;
-      }
-    });
-    setSingleData(filtered);
-  }
-
   return (
     <section id="areas">
       <div>
@@ -127,24 +112,25 @@ export default function Areas() {
             </select>
           </div>
           <div className="region">
-            <select name="region" className={getState ? "active-state" : "state"} onChange={(e) => regionFilter(e.target.value)} id="region">
+            <select name="region" className={getState ? "active-state" : "state"}
+              onChange={(e) => regionFilter(e.target.value)} id="region">
               <option selected value="">{t("city")}</option>
-              <option value="1">Andijon Sh</option>
-              <option value="2">Andijon T</option>
-              <option value="3">Asaka T</option>
-              <option value="4">Baliqchi T</option>
-              <option value="5">Buloqboshi T</option>
-              <option value="6">Bo'ston T</option>
-              <option value="7">Izbosgan T</option>
-              <option value="8">Jalaquduq T</option>
-              <option value="9">Xo'jaobod T</option>
-              <option value="10">Qo'rgontepa T</option>
-              <option value="11">Marhamat T</option>
-              <option value="12">Oltinko'l T</option>
-              <option value="13">Paxtaobod T</option>
-              <option value="14">Shaxrixon T</option>
-              <option value="15">Ulug'nor T</option>
-              <option value="16">Madaniyat T</option>
+              <option value="Andijon shahar">Andijon Sh</option>
+              <option value="Andijon tumani">Andijon T</option>
+              <option value="Asaka tumani">Asaka T</option>
+              <option value="Baliqchi tumani">Baliqchi T</option>
+              <option value="Buloqboshi tumani">Buloqboshi T</option>
+              <option value="Bo'ston tumani">Bo'ston T</option>
+              <option value="Izboskan tumani">Izbosgan T</option>
+              <option value="Jalaquduq tumani">Jalaquduq T</option>
+              <option value="Xo'jaobod tumani">Xo'jaobod T</option>
+              <option value="Qorgontepa tumsni">Qo'rgontepa T</option>
+              <option value="Marhamat tumani">Marhamat T</option>
+              <option value="Oltinkol tumani">Oltinko'l T</option>
+              <option value="Paumanixtaobod t">Paxtaobod T</option>
+              <option value="Shaxrixon tumani">Shaxrixon T</option>
+              <option value="Ulugnor tumani">Ulug'nor T</option>
+              <option value="Madaniyat tumani">Madaniyat T</option>
             </select>
           </div>
           <div class="box">
@@ -162,7 +148,9 @@ export default function Areas() {
           </div>
         </div>
         {/* --main areas-- */}
-        <h1>{hasRegion}</h1>
+        <h1
+          style={{ position: "absolute", top: "40%", left: "40%", fontSize: "24px", fontWeight: 700 }}
+        >{hasRegion}</h1>
         <div className="main-cards">
           {/* ---card--- */}
           {data1?.map((item) => (
@@ -228,24 +216,14 @@ export default function Areas() {
                 </div>
                 <div className="buttons">
                   <Link to={"/areas/mapping/" + item.id}>
-                    <button onClick={() => getAsingleItem(item.id)}>Contact Us</button>
+                    <button>Contact Us</button>
                   </Link>
                 </div>
               </div>
             </div>
           ))}
           {/* mapping */}
-          {/* <div className="mapping">
-            <div className="initMap">
-              <YMaps>
-                <div style={{ width: "50%", height: "50%" }}>
-                  <Map defaultState={{ center: [72.359477, 19.52], zoom: 9 }} style={{ width: "600px", height: "400px" }} />
-                </div>
-              </YMaps>
-            </div>
-          </div> */}
         </div>
-
       </div>
       <div>
         <Brands />

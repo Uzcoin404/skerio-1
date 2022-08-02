@@ -82,7 +82,7 @@ export default function Nav() {
                 <div className={`toggle-menu ${toggleMenu ? "is-expended" : ""}`}>
                     <ul className="toggle-toggle">
                         <li className="toggle-item" activeClass="active">
-                            <NavLink to="/footballmenu">{t("home")}</NavLink>
+                            <NavLink to="/">{t("home")}</NavLink>
                         </li>
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/news">{t("news")}</NavLink>
@@ -90,9 +90,9 @@ export default function Nav() {
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/shop">{t("shop")}</NavLink>
                         </li>
-                        <li className="toggle-item" activeClass="active">
+                        {/* <li className="toggle-item" activeClass="active">
                             <NavLink to="/tickets">{t("tickets")}</NavLink>
-                        </li>
+                        </li> */}
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/table">{t("table")}</NavLink>
                         </li>

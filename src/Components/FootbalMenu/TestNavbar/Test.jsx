@@ -62,7 +62,7 @@ export default function Test() {
         if (myId) {
             setLoginBtn(``);
             setLoginStyle(myId);
-            setLinkTo("/myprofile");
+            setLinkTo("/cabinet");
         } else {
             setLoginBtn(loginBtn);
             setLinkTo(linkTo)
@@ -73,7 +73,7 @@ export default function Test() {
         <section className="header">
             <nav>
                 <div className="logo">
-                    <NavLink to="/">{t("skerio")}</NavLink>
+                    <Link to="/">{t("skerio")}</Link>
                 </div>
 
                 <div className={`toggle-menu ${toggleMenu ? "is-expended" : ""}`}>
@@ -82,7 +82,7 @@ export default function Test() {
                     </div>
                     <ul className="toggle-toggle">
                         <li className="toggle-item" activeClass="active">
-                            <NavLink to="/footballmenu">{t("home")}</NavLink>
+                            <NavLink to="/">{t("home")}</NavLink>
                         </li>
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/news">{t("news")}</NavLink>
@@ -90,9 +90,9 @@ export default function Test() {
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/shop">{t("shop")}</NavLink>
                         </li>
-                        <li className="toggle-item" activeClass="active">
+                        {/* <li className="toggle-item" activeClass="active">
                             <NavLink to="/tickets">{t("tickets")}</NavLink>
-                        </li>
+                        </li> */}
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/table">{t("table")}</NavLink>
                         </li>
@@ -131,9 +131,9 @@ export default function Test() {
                         <button
                             className={loginStyle ? "myprofile" : "button"}
                         >
-                            <div className="icons">
-                            </div>
                             <Link to={linkTo}>
+                                <div className="icons">
+                                </div>
                                 {loginBtn}
                             </Link>
                         </button>

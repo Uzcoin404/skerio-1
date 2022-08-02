@@ -40,8 +40,8 @@ const App = () => {
         <ExampleContext.Provider value={singleNews}>
           <UserContextProvider>
             <Routes>
-              <Route path="/" exact element={<Main />} />
-              <Route path="/footballmenu" element={<FootbalMenu />} />
+              {/* <Route path="/" exact element={<Main />} /> */}
+              <Route path="/" exact element={<FootbalMenu />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/shop/cart/payment" element={<Payment />} />
               <Route path="/areas" element={<Areas />} />
@@ -53,7 +53,7 @@ const App = () => {
               <Route path="/table" element={<Table />} />
               <Route path="/table/meeting" element={<TableMeeting />} />
               <Route path="/table/schedule" element={<TableTeam />} />
-              <Route path="/tickets" element={<Tickets />} />
+              {/* <Route path="/tickets" element={<Tickets />} /> */}
               <Route path="/myprofile" element={<SideNav />}>
                 {/* <Route path="wishlist" element={<Wishlist />} /> */}
               </Route>

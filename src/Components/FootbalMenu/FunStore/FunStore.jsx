@@ -9,6 +9,7 @@ import { Pagination } from "swiper";
 import { loadCurrentItem, addToCart } from "../../../redux/Shopping/shopping-actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -109,7 +110,9 @@ const FunStore = function ({ addToCart, loadCurrentItem }) {
                   <h4>{item.name}</h4>
                   <p>{item.price}</p>
                 </div>
-                  <AddShoppingCartIcon onClick={checkIfLoggedIn} style={{ color: 'white' }} />
+                <Link to="/shop">
+                  <NavigateNextIcon style={{ color: 'white' }} />
+                </Link>
               </div>
             </SwiperSlide>
           ))}

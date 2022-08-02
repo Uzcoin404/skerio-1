@@ -23,7 +23,7 @@ export default function FootbalMenu() {
             <Slider />
             <Featured />
             <FunStore />
-            <Tickets />
+            {/* <Tickets /> */}
             <Statistic />
             <Ground />
             <Brands />

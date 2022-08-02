@@ -42,14 +42,14 @@ margin-top: 20px;
 
 
 export const Eyl = styled.div`
-line-height: 60px;
-margin-top: 4%;
+line-height: 40px;
+margin-top: 2%;
 @media (max-width:430px) {
  margin-bottom: 53px;
 }
 `
 export const Enter = styled.h2`
-top: 100px;
+top: 50px;
 color: #FFFFFF;
 font-size: 60px;
 @media (max-width:430px) {
@@ -95,7 +95,7 @@ height: 80px;
 font-size: 30px;
 color: white;
 background: rgba(0, 0, 0, 0.5);
-border-radius: 15px;
+border-radius: 10px;
 border: none;
 outline: none;
 padding-left: 5%;
@@ -120,7 +120,7 @@ height: 80px;
 font-size: 30px;
 color: white;
 background: rgba(0, 0, 0, 0.5);
-border-radius: 15px;
+border-radius: 10px;
 border: none;
 outline: none;
 margin-left: 20px;
@@ -151,7 +151,7 @@ height: 80px;
 font-size: 30px;
 color: white;
 background: rgba(0, 0, 0, 0.5);
-border-radius: 15px;
+border-radius: 10px;
 border: none;
 outline: none;
 padding-left: 5%;
@@ -177,7 +177,7 @@ height: 80px;
 font-size: 30px;
 color: white;
 background: rgba(0, 0, 0, 0.5);
-border-radius: 15px;
+border-radius: 10px;
 border: none;
 outline: none;
 padding-left: 5%;
@@ -204,7 +204,7 @@ height: 80px;
 font-size: 30px;
 color: white;
 background: rgba(0, 0, 0, 0.5);
-border-radius: 15px;
+border-radius: 10px;
 border: none;
 outline: none;
 padding-left: 5%;
