@@ -181,7 +181,6 @@ function Shop({ cart }) {
 const mapStateToProps = (state) => {
     return {
         cart: state.shop.cart,
-        cart: state.shop.cart,
     };
 };
 export default connect(mapStateToProps)(Shop);
