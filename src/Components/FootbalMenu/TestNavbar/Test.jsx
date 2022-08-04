@@ -7,6 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import LanguageIcon from '@mui/icons-material/Language';
 import { useTranslation } from 'react-i18next';
+import { ExampleContext } from "../../News/context"
 import i18next from "i18next";
 import './test.scss';
 
@@ -36,6 +37,8 @@ export default function Test() {
         setToggleMenu(toggleMenu === false ? true : false);
     }
     const { t } = useTranslation();
+
+    const getCtx = useContext(ExampleContext);
 
     const userCtx = useContext(UserContext);
     const { changeSportTypeId } = userCtx;
@@ -70,7 +73,7 @@ export default function Test() {
     }, [myId, loginBtn, linkTo]);
 
     return (
-        <section className="header">
+        <section id="header">
             <nav>
                 <div className="logo">
                     <Link to="/">{t("skerio")}</Link>
@@ -119,7 +122,8 @@ export default function Test() {
                             <button class="dropbtn"><LanguageIcon />{t("language")}    <KeyboardArrowDownIcon /></button>
                             <div class="dropdown-content">
                                 {language.map(({ code, name, country }) => (
-                                    <button onClick={() => i18next.changeLanguage(code)}>
+                                    <button onClick={() => getCtx(code)}
+                                    >
                                         <i className={`flag-icon flag-icon-${country}`}></i>
                                         &nbsp; {name}
                                     </button>

@@ -366,8 +366,11 @@
         }
         .news {
           padding: 30px 43px 30px 26px;
+          &:hover {
+            color: #1565c0;
+          }
           p {
-            text-align: center;
+            text-align: start;
             font-weight: 500;
             font-size: 18px;
             line-height: 22px;

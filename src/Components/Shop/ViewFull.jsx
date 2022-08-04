@@ -8,10 +8,13 @@ import axios from "axios";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { useParams } from "react-router-dom";
 import "./viewfull.scss";
 
 function ViewFull({ current, addToCart, cart }) {
   const [data, setData] = useState([]);
+
+  let {id} = useParams();
 
   useEffect(() => {
     axios.get("https://skerio.uz/api/size").then((res) => {
@@ -34,10 +37,10 @@ function ViewFull({ current, addToCart, cart }) {
   const [login, setLogin] = useState("/login");
   const myToken = window.localStorage.getItem('token');
 
-  const [firstBtn, setFirstBtn] = useState({ t("addCart") });
+  const [firstBtn, setFirstBtn] = useState(`${t("addCart")}`);
 
   const handleSubmit = function () {
-    setFirstBtn({ t("added") });
+    setFirstBtn(`${t("added")}`);
 
     const handleSetTime = setTimeout(() => {
       setFirstBtn(firstBtn);

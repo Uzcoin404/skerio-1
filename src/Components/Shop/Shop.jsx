@@ -14,7 +14,7 @@ import UserContext from '../../context/userContext';
 import Badge from '@mui/material/Badge';
 import './shop.scss';
 
-function Shop({ cart }) {
+function Shop({ cart, singleNews }) {
 
     const { t } = useTranslation();
     const userCtx = useContext(UserContext);
@@ -106,8 +106,8 @@ function Shop({ cart }) {
                     <div className="filerButtons">
                         <div className="fil">
                             <div className="filBtns">
-                                {filterBtns.map(buttons =>
-                                    <button onClick={() => filterBtnHandler(buttons.categoryBtn)} key={buttons.id}
+                                {filterBtns.map((buttons, index) =>
+                                    <button onClick={() => filterBtnHandler(buttons.categoryBtn)} key={index}
                                         className={buttons.categoryBtn === category ? "activeBtn" : ""}
                                     >
                                         {buttons.name}

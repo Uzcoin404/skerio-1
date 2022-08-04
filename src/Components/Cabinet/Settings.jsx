@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import avatarImg from "../../img/avatar.png"
+import jwt_decode from "jwt-decode";
 import "./setting.scss";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 export default function Settings() {
 
     const [firstBtn, seFirstBtn] = useState(<button type="button" className="button">Save</button>);
-
 
     const handleSubmit = function () {
         seFirstBtn(<button type="button" className="clicked"><CheckCircleIcon style={{ fontSize: "2rem", color: "green" }} /> Sent</button>);
@@ -19,6 +19,7 @@ export default function Settings() {
         }, 4000);
         return handleSetTime;
     }
+
     return (
         <section id="settings">
             <div className="title">

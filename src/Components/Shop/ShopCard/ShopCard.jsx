@@ -15,8 +15,8 @@ import 'swiper/css/bundle';
 
 function ShopCard({ data, addToCart, loadCurrentItem }) {
 
-    const getMyID = window.localStorage.getItem("token") ? localStorage.getItem("token") : null;
-    const decoded = jwt_decode(getMyID);
+    const getMyID = window.localStorage.getItem("token") !== null ? localStorage.getItem("token") : null;
+    const decoded = getMyID === null ? 0 : jwt_decode(getMyID);
     const myID = decoded.sub;
 
     let myHeaders = new Headers();
@@ -41,20 +41,21 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
             .then(res => res.text())
             .then((res) => {
                 setrender(res);
-                console.log('sd',res);
+                console.log(res);
             })
             .catch(error => console.log('error', error));
 
         const getLike = function () {
-            data?.some(item => {
+            data?.filter(item => {
                 if (item.id === render) {
                     return setLike(true);
+                } else {
+                    return setLike(false);
                 }
             });
         }
         return getLike(newsid);
     }
-    console.log(render);
 
     const [login, setLogin] = useState("");
 
@@ -66,6 +67,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
         }
     }
 
+    console.log(data)
     return (
         <section id="shopcard" data-aos="fade-left">
             <Swiper style={{
@@ -382,7 +384,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
                     </SwiperSlide>
                 ))}
                 {/* --cards-- */}
-            </Swiper> 
+            </Swiper>
         </section >
     )
 }

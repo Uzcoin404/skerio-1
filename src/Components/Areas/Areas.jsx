@@ -32,6 +32,7 @@ export default function Areas() {
 
   const [data, setData] = useState([]);
   const [search1, setSearch1] = useState("");
+
   useEffect(() => {
     axios
       .get(`https://skerio.uz/api/complexCategory/${sportTypeId}`)
@@ -49,9 +50,11 @@ export default function Areas() {
     "description_uz",
     "description_ru",
     "description_en",
-    "location",
+    "area",
     "price",
     "address",
+    "phone",
+    "sport_category"
   ];
 
   const [region, setRegion] = useState([]);
@@ -76,6 +79,7 @@ export default function Areas() {
       keys.some((key) => item[key].toLowerCase().includes(search1))
     );
   };
+  console.log(data)
   const data1 = searchHandle(region);
   const [getState, setGetState] = useState(false);
 
@@ -132,6 +136,9 @@ export default function Areas() {
               <option value="Ulugnor tumani">Ulug'nor T</option>
               <option value="Madaniyat tumani">Madaniyat T</option>
             </select>
+          </div>
+          <div className="location">
+            <LocationOnIcon className="location-icon"/>
           </div>
           <div class="box">
             <form name="search">
