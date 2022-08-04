@@ -218,6 +218,7 @@ export default function Areas() {
                   <div className="right">
                     <p>
                       <MeetingRoomIcon /> {t('dressrooms')}: {item.dress_room}
+                      <MeetingRoomIcon /> {t('dressrooms')}: {item.dress_room}
                     </p>
                     <p>
                       <AddLocationAltIcon />{" "}
