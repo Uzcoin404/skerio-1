@@ -1,0 +1,123 @@
+#full-news {
+  width: 100%;
+  height: auto;
+  .full-wrapper {
+    width: 80%;
+    margin: 120px auto 0 auto;
+    .back {
+      margin-bottom: 20px;
+      h2 {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 29.25px;
+        cursor: pointer;
+      }
+    }
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      .news-title {
+        .news-continent {
+          margin-bottom: 20px 0;
+          p {
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 29.6px;
+            text-transform: uppercase;
+          }
+        }
+        h2 {
+          margin-top: 50px;
+          font-size: 32px;
+          width: 500px;
+          font-weight: 700;
+          line-height: 39px;
+        }
+      }
+    }
+
+    .footer {
+      padding: 50px 100px;
+      .description {
+        p {
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1160px) {
+  #full-news {
+    width: 100%;
+    height: auto;
+    .full-wrapper {
+      width: 100%;
+      margin: 120px auto 0 auto;
+      .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 30px;
+      }
+    }
+  }
+}
+@media (max-width: 999px) {
+  #full-news {
+    width: 100%;
+    height: auto;
+    .full-wrapper {
+      width: 100%;
+      margin: 120px auto 0 auto;
+      .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0 30px;
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  #full-news {
+    width: 100%;
+    height: auto;
+    .full-wrapper {
+      width: 100%;
+      margin: 120px auto 0 auto;
+      .back {
+        margin: 20px 0;
+      }
+      .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0 20px;
+        .news-title {
+          h2 {
+            margin-top: 50px;
+            font-size: 25px;
+            width: auto;
+            font-weight: 600;
+            padding: 0 14px;
+          }
+        }
+      }
+      .footer {
+        padding: 50px 20px;
+        .description {
+          p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+}

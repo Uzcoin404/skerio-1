@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import Nav from '../Nav/Nav';
@@ -8,8 +8,11 @@ import { RWebShare } from "react-web-share";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ShareIcon from '@mui/icons-material/Share';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import { Link } from "react-router-dom";
 import { Box, Modal } from '@mui/material';
 import jwt_decode from "jwt-decode";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { LanguageContext } from "../../lanContext"
 import './news.scss';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -30,6 +33,8 @@ const style = {
 export default function News() {
 
     const { t } = useTranslation();
+
+    const singleNews = useContext(LanguageContext);
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -53,29 +58,6 @@ export default function News() {
         }
     ];
 
-    const dateBtns = [
-        {
-            id: 1,
-            name: 'Day',
-            category: 'day'
-        },
-        {
-            id: 2,
-            name: 'Week',
-            category: 'week'
-        },
-        {
-            id: 3,
-            name: 'Month',
-            category: 'month'
-        },
-        {
-            id: 4,
-            name: 'Year',
-            category: 'year'
-        },
-    ];
-
     const btns = [
         {
             icons: <ThumbUpIcon />
@@ -83,7 +65,7 @@ export default function News() {
     ];
 
     const token = localStorage.getItem('token');
-    const decode = jwt_decode(token);
+    const decode = token === null ? 0 : jwt_decode(token);
     const decoded = decode.sub;
     var myHeaders = new Headers();
     myHeaders.append("Accept", "application/json");
@@ -131,6 +113,8 @@ export default function News() {
     const [data2, setData2] = useState([]);
     const [status, setStatus] = useState([]);
     const [popular, setPopular] = useState([]);
+    const [firstDate, setFirstData] = useState([]);
+    const [popularNews, setPopularNews] = useState(0);
     useEffect(() => {
         try {
             axios.get('https://skerio.uz/api/likenews').then((res) => {
@@ -141,24 +125,12 @@ export default function News() {
         }
     }, []);
 
-    const [day, setDay] = useState([])
-    const getFilterDay = function () {
-        axios.get("https://skerio.uz/api/dailyFilter").then(res => {
-            setDay(res.data.data)
-        })
-    }
-    console.log(day);
-
-    const [firstDate, setFirstData] = useState([]);
-    const [filteredDate, setFilteredDate] = useState([]);
-
     useEffect(() => {
         try {
             axios.get('https://skerio.uz/api/news').then((res) => {
                 setData(res.data.data);
                 setData1(res.data.data);
                 setFirstData(res.data.data);
-                console.log(res.data.data)
             });
             axios.get('https://skerio.uz/api/lastnews').then(res => {
                 setData2(res.data.data);
@@ -173,7 +145,7 @@ export default function News() {
 
     const filterHandling = (item) => {
         setCategory(item);
-        const filtered = data1.filter(value => {
+        const filtered = firstDate.filter(value => {
             if (value.continent_id === item) {
                 return value.continent_id === item;
             } else if (item === "") {
@@ -182,25 +154,6 @@ export default function News() {
         });
         setData(filtered);
     }
-
-    const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
-
-    const filterDate = function (btnId) {
-        setFilteredDate(btnId);
-        const filtered = data2.filter(item => {
-            if (item.created_at === date) {
-                return item.created_at === date;
-            } else if (item.created_at <= date - 30) {
-                return item.created_at <= date - 30;
-            } else if (item.created_at <= date - 365) {
-                return item.created_at <= date - 365;
-            }
-        })
-        setFirstData(filtered);
-    }
-
-    const [popularNews, setPopularNews] = useState(0);
 
     useEffect(() => {
         setPopularNews(popular.length);
@@ -220,14 +173,6 @@ export default function News() {
                         </button>
                     )}
                 </div>
-                <div className="title-right" data-aos="fade-left">
-                    <ul className="title">
-                        {/* {dateBtns.map(btn =>
-                            <li onClick={() => filterDate(btn)} className="title-item" key={btn.id}>{btn.name}</li>
-                        )}*/}
-                        <li onClick={getFilterDay} className="title-item" >Day</li>
-                    </ul>
-                </div>
             </div>
             <div className="main-body" >
                 <div className="body-left">
@@ -242,15 +187,16 @@ export default function News() {
                                     <p>Exclusive</p>
                                 </div>
                                 <div className="card-info">
-                                    <h2>{value.title_en}</h2>
+                                    <h2>{singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru}</h2>
                                     <p>
-                                        {value.description_en.length > 200 ?
-                                            `${value.description_en.substring(0, 200)} ...` : value.description_en
+                                        {singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru.length > 200 ?
+                                            `${singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru.substring(0, 200)} ...` : singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru
                                         }
+                                        {singleNews}
                                     </p>
                                     <button className="learn-more" onClick={handleOpen}
                                     >
-                                        Learn More
+                                        {t("seeMore")}
                                     </button>
                                 </div>
                                 <div className="share-icons">
@@ -284,7 +230,7 @@ export default function News() {
                     {/* --second card -- */}
                     <div className="cards" >
                         {/* --card-- */}
-                        {firstDate.map(value =>
+                        {data.map(value =>
                             <div className="card" data-aos="fade-right">
                                 <div className="card-img">
                                     <img src={'https://skerio.uz/admin/images/news/' + value.image} />
@@ -293,10 +239,11 @@ export default function News() {
                                     <div className="card-date">
                                         <h5><CalendarMonthIcon /> {value.created_at}</h5>
                                     </div>
-                                    <div className="card-info">
-                                        <h2>{value.title_en}</h2>
-
-                                    </div>
+                                    <Link to={"/news/fullnews/" + value.id}>
+                                        <div className="card-info">
+                                            <h2>{singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru} <ChevronRightIcon /> </h2>
+                                        </div>
+                                    </Link>
                                     <div className="share-icons">
                                         <RWebShare style={{
                                             position: 'fixed',
@@ -332,16 +279,18 @@ export default function News() {
                             <div className="news-title">
                                 <h3>{popularNews} {t("popularNews")}</h3>
                             </div>
-                            {
-                                popular.map((res, index) => {
-                                    return (
-                                        <>
-                                            <div className="news">
-                                                <p><span>{index + 1}</span> {res.title_uz}</p>
-                                                <h5>{res.created_at}</h5>
-                                            </div>
 
-                                        </>
+                            {
+                                popular.map((value, index) => {
+                                    return (
+                                        // <>
+                                        <Link to={"/news/fullnews/" + value.id}>
+                                            <div className="news">
+                                                <p><span>{index + 1}</span> {singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru}  <ChevronRightIcon /></p>
+                                                <h5>{value.created_at}</h5>
+                                            </div>
+                                        </Link>
+                                        // </>
                                     )
                                 })
                             }
@@ -357,12 +306,15 @@ export default function News() {
                                     <div className="card-date">
                                         <h5><CalendarMonthIcon /> {value.created_at}</h5>
                                     </div>
-                                    <div className="card-info">
-                                        <h2>
-                                            {value.title_en.length > 50 ?
-                                                `${value.title_en.substring(0, 57)} ...` : value.title_en
-                                            }</h2>
-                                    </div>
+                                    <Link to={"/news/fullnews/" + value.id}>
+                                        <div className="card-info">
+                                            <h2>
+                                                {singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru.length > 40 ?
+                                                    `${singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru.substring(0, 57)} ...` : singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru
+                                                }  <ChevronRightIcon />
+                                            </h2>
+                                        </div>
+                                    </Link>
                                     <div className="share-icons">
                                         <RWebShare style={{
                                             position: 'absolute',
@@ -404,12 +356,12 @@ export default function News() {
                                             <div className="first-title">
                                                 <h2
                                                     style={{ width: "300px", marginLeft: "20px", fontSize: "25px", fontWeight: "600" }}
-                                                >{value.title_en}</h2>
+                                                >{singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru}</h2>
                                             </div>
                                         </div>
                                         <div className="body">
                                             <p style={{}}>
-                                                {value.description_en}
+                                                {singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru}
                                             </p>
                                         </div>
                                     </Box>

@@ -7,6 +7,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
+import PersonIcon from '@mui/icons-material/Person';
 import "./cabinet.scss";
 export default function Cabinet() {
 
@@ -51,6 +52,14 @@ export default function Cabinet() {
                         </div>
                         <div className="sections">
                             <ul>
+                                <Link to="user" >
+                                    <li>
+                                        <span>
+                                            <PersonIcon />
+                                        </span> User
+                                        <ChevronRightIcon style={{ marginLeft: "25px" }} />
+                                    </li>
+                                </Link>
                                 <Link to="setting" >
                                     <li>
                                         <span>

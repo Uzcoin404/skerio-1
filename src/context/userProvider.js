@@ -9,12 +9,14 @@ const UserContextProvider = (props) => {
   const handleChangeSportId = (id) => {
     setId(id);
   };
+  const handleChangeLanguage = () => {};
 
   return (
     <UserContext.Provider
       value={{
         sportTypeId: id,
         changeSportTypeId: handleChangeSportId,
+        initLan: handleChangeLanguage,
       }}
     >
       {props.children}

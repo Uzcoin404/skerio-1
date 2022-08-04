@@ -55,7 +55,6 @@ export default function Tableteam() {
       searchBtn.style.display = "block";
       searchInput.style.transform = "translateX(300px)";
     });
-
   };
   const [w, setW] = useState("");
   return (
@@ -85,10 +84,10 @@ export default function Tableteam() {
             <Link to="/table">
               <span className="statistics">Statistics</span>
             </Link>
-            <Link to="/meeting">
-              <span className="meetings">Meetings</span>
+            <Link to="/table/meeting">
+              <span className="/table/meeting">Meetings</span>
             </Link>
-            <Link to="/schedule">
+            <Link to="/table/schedule">
               <span className="schedule active">Schedule</span>
             </Link>
             <input

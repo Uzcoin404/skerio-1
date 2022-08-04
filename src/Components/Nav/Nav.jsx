@@ -7,8 +7,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import LanguageIcon from '@mui/icons-material/Language';
 import UserContext from '../../context/userContext'
-import i18next from "i18next";
 import Divider from '@mui/material/Divider';
+import { ExampleContext } from "../News/context"
 import './nav.scss';
 
 const language = [
@@ -33,6 +33,8 @@ export default function Nav() {
 
     const userCtx = useContext(UserContext);
     const { changeSportTypeId } = userCtx;
+
+    const getCtx = useContext(ExampleContext);
 
     const handleSportId = async function (item) {
         changeSportTypeId(item.id);
@@ -82,7 +84,7 @@ export default function Nav() {
                 <div className={`toggle-menu ${toggleMenu ? "is-expended" : ""}`}>
                     <ul className="toggle-toggle">
                         <li className="toggle-item" activeClass="active">
-                            <NavLink to="/footballmenu">{t("home")}</NavLink>
+                            <NavLink to="/">{t("home")}</NavLink>
                         </li>
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/news">{t("news")}</NavLink>
@@ -90,9 +92,9 @@ export default function Nav() {
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/shop">{t("shop")}</NavLink>
                         </li>
-                        <li className="toggle-item" activeClass="active">
+                        {/* <li className="toggle-item" activeClass="active">
                             <NavLink to="/tickets">{t("tickets")}</NavLink>
-                        </li>
+                        </li> */}
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/table">{t("table")}</NavLink>
                         </li>
@@ -122,7 +124,7 @@ export default function Nav() {
                             <span><LanguageIcon /> {t("language")}  <KeyboardArrowDownIcon /></span>
                             <div class="dropdown-content">
                                 {language.map(({ code, name, country }) => (
-                                    <button onClick={() => i18next.changeLanguage(code)}>
+                                    <button onClick={() => getCtx(code)}>
                                         <i className={`flag-icon flag-icon-${country}`}></i>
                                         &nbsp; {name}
                                     </button>

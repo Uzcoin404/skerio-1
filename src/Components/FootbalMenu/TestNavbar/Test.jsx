@@ -7,6 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import LanguageIcon from '@mui/icons-material/Language';
 import { useTranslation } from 'react-i18next';
+import { ExampleContext } from "../../News/context"
 import i18next from "i18next";
 import './test.scss';
 
@@ -37,6 +38,8 @@ export default function Test() {
     }
     const { t } = useTranslation();
 
+    const getCtx = useContext(ExampleContext);
+
     const userCtx = useContext(UserContext);
     const { changeSportTypeId } = userCtx;
 
@@ -62,7 +65,7 @@ export default function Test() {
         if (myId) {
             setLoginBtn(``);
             setLoginStyle(myId);
-            setLinkTo("/myprofile");
+            setLinkTo("/cabinet");
         } else {
             setLoginBtn(loginBtn);
             setLinkTo(linkTo)
@@ -70,10 +73,10 @@ export default function Test() {
     }, [myId, loginBtn, linkTo]);
 
     return (
-        <section className="header">
+        <section id="header">
             <nav>
                 <div className="logo">
-                    <NavLink to="/">{t("skerio")}</NavLink>
+                    <Link to="/">{t("skerio")}</Link>
                 </div>
 
                 <div className={`toggle-menu ${toggleMenu ? "is-expended" : ""}`}>
@@ -82,7 +85,7 @@ export default function Test() {
                     </div>
                     <ul className="toggle-toggle">
                         <li className="toggle-item" activeClass="active">
-                            <NavLink to="/footballmenu">{t("home")}</NavLink>
+                            <NavLink to="/">{t("home")}</NavLink>
                         </li>
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/news">{t("news")}</NavLink>
@@ -90,9 +93,9 @@ export default function Test() {
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/shop">{t("shop")}</NavLink>
                         </li>
-                        <li className="toggle-item" activeClass="active">
+                        {/* <li className="toggle-item" activeClass="active">
                             <NavLink to="/tickets">{t("tickets")}</NavLink>
-                        </li>
+                        </li> */}
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/table">{t("table")}</NavLink>
                         </li>
@@ -119,7 +122,8 @@ export default function Test() {
                             <button class="dropbtn"><LanguageIcon />{t("language")}    <KeyboardArrowDownIcon /></button>
                             <div class="dropdown-content">
                                 {language.map(({ code, name, country }) => (
-                                    <button onClick={() => i18next.changeLanguage(code)}>
+                                    <button onClick={() => getCtx(code)}
+                                    >
                                         <i className={`flag-icon flag-icon-${country}`}></i>
                                         &nbsp; {name}
                                     </button>
@@ -131,9 +135,9 @@ export default function Test() {
                         <button
                             className={loginStyle ? "myprofile" : "button"}
                         >
-                            <div className="icons">
-                            </div>
                             <Link to={linkTo}>
+                                <div className="icons">
+                                </div>
                                 {loginBtn}
                             </Link>
                         </button>

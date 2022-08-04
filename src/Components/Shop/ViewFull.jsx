@@ -8,10 +8,13 @@ import axios from "axios";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { useParams } from "react-router-dom";
 import "./viewfull.scss";
 
 function ViewFull({ current, addToCart, cart }) {
   const [data, setData] = useState([]);
+
+  let {id} = useParams();
 
   useEffect(() => {
     axios.get("https://skerio.uz/api/size").then((res) => {
@@ -34,18 +37,10 @@ function ViewFull({ current, addToCart, cart }) {
   const [login, setLogin] = useState("/login");
   const myToken = window.localStorage.getItem('token');
 
-  const [firstBtn, setFirstBtn] = useState(
-    <>
-      {t("addCart")} < AddShoppingCartIcon style={{ color: "#fff" }} />
-    </>
-  );
+  const [firstBtn, setFirstBtn] = useState(`${t("addCart")}`);
 
   const handleSubmit = function () {
-    setFirstBtn(
-      <>
-        {t("added")} < AddShoppingCartIcon style={{ color: "#fff" }} />
-      </>
-    );
+    setFirstBtn(`${t("added")}`);
 
     const handleSetTime = setTimeout(() => {
       setFirstBtn(firstBtn);
@@ -70,7 +65,7 @@ function ViewFull({ current, addToCart, cart }) {
       <div className="backtoshop">
         <Link to="/shop">
           <button>
-            <ArrowBackIosIcon /> Back to Shop
+            <ArrowBackIosIcon /> {t("back")}
           </button>
         </Link>
       </div>
@@ -119,8 +114,9 @@ function ViewFull({ current, addToCart, cart }) {
             </p>
           </div>
           <div className="addToCart">
-            <button onClick={() => checkIfLoggedIn(current.id)}>
-              {firstBtn}
+            <button button onClick={() => checkIfLoggedIn(current.id)}
+            >
+              {firstBtn} < AddShoppingCartIcon style={{ color: "#fff" }} />
             </button>
           </div>
         </div>

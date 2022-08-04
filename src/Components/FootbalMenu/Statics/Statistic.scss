@@ -112,11 +112,11 @@
     overflow-y: scroll;
     height: 400px;
     cursor: pointer;
-    user-select: none; 
-    -webkit-user-select: none; 
-    -moz-user-select: none; 
-    -khtml-user-select: none; 
-    -ms-user-select: none; 
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
     .left-line {
       display: flex;
       flex-direction: row;
@@ -217,7 +217,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  width: 400px;
+  width: auto;
   overflow: hidden;
   .left-img {
     img {

@@ -12,9 +12,22 @@ import Slider1 from '../Shop/Slider1/Slider1';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import UserContext from '../../context/userContext';
 import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import './shop.scss';
 
-function Shop({ cart }) {
+const StyledBadge = styled(Badge)(({ theme }) => ({
+    '& .MuiBadge-badge': {
+        right: -3,
+        top: 13,
+        border: `2px solid ${theme.palette.background.paper}`,
+        padding: '0 4px',
+    },
+}));
+
+
+function Shop({ cart, singleNews }) {
 
     const { t } = useTranslation();
     const userCtx = useContext(UserContext);
@@ -106,8 +119,8 @@ function Shop({ cart }) {
                     <div className="filerButtons">
                         <div className="fil">
                             <div className="filBtns">
-                                {filterBtns.map(buttons =>
-                                    <button onClick={() => filterBtnHandler(buttons.categoryBtn)} key={buttons.id}
+                                {filterBtns.map((buttons, index) =>
+                                    <button onClick={() => filterBtnHandler(buttons.categoryBtn)} key={index}
                                         className={buttons.categoryBtn === category ? "activeBtn" : ""}
                                     >
                                         {buttons.name}
@@ -126,11 +139,18 @@ function Shop({ cart }) {
                             </div>
                         </div>
                         <div className="busket">
-                            <Link to="/shop/cart">
+                            {/* <Link to="/shop/cart">
                                 <Badge badgeContent={cartCount} color="primary">
                                     <ShoppingCartCheckoutIcon style={{ fontSize: '1.8rem' }} />
                                 </Badge>
-                            </Link>
+                            </Link> */}
+                            <IconButton aria-label="cart">
+                                <Link to="/shop/cart">
+                                    <StyledBadge badgeContent={cartCount} color="secondary">
+                                        <ShoppingCartIcon style={{ fontSize: '1.8rem', color: "red" }} />
+                                    </StyledBadge>
+                                </Link>
+                            </IconButton>
                         </div>
                     </div>
                     <ShopCard data={searching(data)} title='T-shirt' />

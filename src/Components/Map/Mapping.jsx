@@ -10,11 +10,12 @@ import FastfoodIcon from "@mui/icons-material/Fastfood";
 import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 import Brands from '../Brands/Brands';
 import Footer from '../Footer/Footer'
-import { Link, NavLink, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import axios from "axios";
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import MapPicker from 'react-google-map-picker'
-import Areas from '../Areas/Areas';
-const DefaultZoom = 15;
+const DefaultZoom = 25;
 
 
 function Mapping() {
@@ -23,18 +24,15 @@ function Mapping() {
     const { id } = useParams();
     const [data, setData] = useState({});
 
-
-    useEffect(() => {
-        axios.get('https://skerio.uz/api/complex/' + id)
+    useEffect(() => { axios.get('https://skerio.uz/api/complex/' + id)
             .then(function (response) {
                 setData(response.data)
                 setDefaultLocation({ lat: response?.data?.lat * 1, lng: response?.data?.lng * 1 })
             })
-    }, []);
+    }, [id]);
 
-    function handleChangeZoom(newZoom) {
-        setZoom(newZoom);
-    }
+
+    const { t } = useTranslation();
 
     return (
         <>
@@ -43,14 +41,14 @@ function Mapping() {
 
                 <div className="mapping">
                     <Link to={'/areas'}>
-                        <h1>Go to Back</h1>
+                        <h2><KeyboardArrowLeftIcon />  {t("back")}</h2>
                     </Link>
                     <div className="about">
                         <div className="map">
                             <YMaps>
                                 <div>
                                     <Map width="700px"
-                                        height="500px" defaultState={{ center: [`${data?.lat}`, `${data?.lng}`], zoom: 10 }} >
+                                        height="500px" defaultState={{ center: [`${data?.lat}`, `${data?.lng}`], zoom: 16 }} >
                                         <Placemark geometry={[data?.lat, data?.lng]} />
                                     </Map>
                                 </div>
