@@ -1,0 +1,328 @@
+#header {
+  height: 100vh;
+  width: 100%;
+  background: #d8dbe2;
+  // background: url(https://payload.cargocollective.com/1/3/114871/13795369/Phantom_04A_Desktop.gif);
+  // background: url(https://i.gifer.com/7SO.gif);
+  background: url(../../../img/sport.gif);
+  background-size: cover;
+  background-position: center center;
+  // background-attachment: fixed;
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 100px;
+    position: relative;
+    .logo {
+      color: #bf0000;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 52px;
+    }
+    .closeMenu {
+      display: none;
+    }
+    .toggle-menu {
+      display: none;
+      &.is-expended {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transition: all 0.5s ease;
+      }
+      .toggle-toggle {
+        display: flex;
+        flex-direction: row;
+        .toggle-item {
+          padding: 0 30px;
+          font-size: 18px;
+          line-height: 22px;
+          font-weight: 500;
+          color: #fff;
+          transition: all 0.2s ease;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+      .login {
+        button {
+          font-weight: 600;
+          font-size: 18px;
+          background: #bf0000;
+          padding: 0.2rem 1.1rem;
+          border-radius: 3px;
+          color: #fff;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        .myprofile {
+          font-size: 12px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: transparent;
+          color: #fff;
+          .icons {
+            height: 30px;
+            width: 30px;
+            background-image: url(../../../icons/user2.png);
+            background-position: center center;
+            background-size: cover;
+            font-weight: 600;
+          }
+        }
+      }
+      .sport,
+      .language {
+        background-color: inherit;
+        color: #fff;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+      }
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        z-index: 1000;
+        button {
+          font-size: 18px;
+          line-height: 22px;
+          font-weight: 400;
+        }
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        min-width: 110px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-top: 4px solid #bf0000 !important;
+      }
+      .dropdown-content button {
+        color: #000;
+        padding: 12px 10px;
+        text-decoration: none;
+        display: block;
+      }
+      .dropdown-content button:hover {
+        background-color: #f8f8f8;
+        width: 100%;
+        text-align: start !important;
+      }
+      .dropdown:hover .dropdown-content {
+        display: flex !important;
+        flex-direction: column;
+        align-items: start;
+      }
+      .dropdown:hover .dropbtn {
+        color: #fff;
+      }
+    }
+  }
+  .hamburger {
+    position: absolute;
+    top: 32px;
+    right: 3px;
+    width: 50px;
+    height: 50px;
+    display: none;
+  }
+
+  .main-page {
+    padding: 280px 102px;
+    .main-title {
+      width: 1000px;
+      h1 {
+        font-family: Inter;
+        color: #d8dbe2;
+        font-size: 64px;
+        line-height: 77px;
+        line-height: 100%;
+        letter-spacing: 10%;
+        font-weight: 900;
+        text-shadow: 5px 5px 20px 20px rgba(0, 0, 0, 0.5);
+      }
+    }
+    .main-desc {
+      width: 466px;
+      height: 176px;
+      padding-top: 38px;
+      p {
+        font-family: Inter;
+        color: #d8dbe2;
+        font-size: 18px;
+        line-height: 22px;
+        line-height: 100%;
+        letter-spacing: 10%;
+        font-weight: 500;
+        text-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    span {
+      display: block;
+      width: 40px;
+      height: 40px;
+      transform: rotate(45deg);
+      border-bottom: 5px solid #bf0000;
+      border-right: 5px solid #bf0000;
+      margin: -10px;
+      animation: scroll infinite 2s;
+    }
+    span:nth-child(2) {
+      animation-delay: -0.2s;
+    }
+    span:nth-child(3) {
+      animation-delay: -0.4s;
+    }
+  }
+}
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+}
+@media (max-width: 896px) {
+  .header {
+    width: 100%;
+    nav {
+      padding: 20px 40px;
+      .logo {
+        color: #bf0000;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 42px;
+      }
+      .toggle-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        right: 0;
+        z-index: 100;
+        background: #000;
+        transition: all 0.5s ease;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+        .closeMenu {
+          display: block;
+          position: absolute;
+          top: 30px;
+          right: 10px;
+        }
+        &.is-expended {
+          display: none;
+        }
+        .toggle-toggle {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 30px;
+          .toggle-item {
+            color: #fff;
+            padding: 15px 0;
+            font-size: 16px;
+          }
+        }
+        .sport,
+        .language {
+          background-color: #000;
+          color: #fff;
+          padding: 16px;
+          font-size: 16px;
+          border: none;
+        }
+        .dropdown {
+          position: relative;
+          display: inline-block;
+          z-index: 1000;
+          button {
+            font-size: 18px;
+            line-height: 22px;
+            font-weight: 400;
+          }
+        }
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #fff;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          z-index: 1;
+        }
+        .dropdown-content .a {
+          color: #000;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+        .dropdown-content .a:hover {
+          background-color: #f8f8f8;
+        }
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+        .dropdown:hover .dropbtn {
+          color: #fff;
+        }
+      }
+    }
+    .hamburger {
+      display: block;
+    }
+  }
+}
+@media (max-width: 430px) {
+  .header {
+    .main-page {
+      padding: 120px 10px;
+      .main-title {
+        h1 {
+          font-size: 32px;
+          line-height: 47px;
+          line-height: 100%;
+          letter-spacing: 7%;
+          font-weight: 700;
+          text-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.2);
+          width: 330px;
+        }
+      }
+      .main-desc {
+        width: auto;
+        height: auto;
+        padding-top: 38px;
+        p {
+          font-family: Inter;
+          color: #d8dbe2;
+          font-size: 15px;
+          line-height: 20px;
+          letter-spacing: 10%;
+          font-weight: 400;
+          text-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+}

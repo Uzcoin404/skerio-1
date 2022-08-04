@@ -1,0 +1,195 @@
+#viewfull {
+  width: 100%;
+  .backtoshop {
+    padding: 150px 0 30px 130px;
+    button {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 20px;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+      text-decoration: underline;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+  .div-wrapper {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .big-image {
+      width: 500px;
+      margin: 50px 0 0 100px;
+      img {
+        height: 400px;
+        width: 300px;
+        text-align: center;
+        object-fit: cover;
+      }
+    }
+    .desc {
+      display: flex;
+      flex-direction: column;
+      .chooseSize {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .fullSize {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .size {
+          .staticSize {
+            border: 0.5px solid #c2c2c2;
+            width: 50px;
+            text-align: center;
+            padding: 0.5rem 0;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 22px;
+            font-weight: 600;
+            &:hover {
+              background-color: #bf0000;
+              color: #fff;
+            }
+          }
+          .activeSize {
+            border: 0.5px solid #c2c2c2;
+            width: 50px;
+            text-align: center;
+            padding: 0.5rem 0;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 22px;
+            font-weight: 600;
+            background-color: #bf0000;
+            color: #fff;
+          }
+        }
+      }
+      .product-detail {
+        h1 {
+          font-size: 1.5em;
+          font-weight: 600;
+          line-height: 29px;
+        }
+      }
+      .title {
+        margin-top: 30px;
+        h2 {
+          font-weight: 500;
+          font-size: 1.3rem;
+        }
+      }
+      .price {
+        margin-top: 50px;
+        font-weight: 600;
+        font-size: 18px;
+      }
+      .description {
+        width: 500px;
+        p {
+          padding: 20px;
+          font-weight: 500;
+        }
+      }
+      .addToCart {
+        button {
+          font-size: 18px;
+          font-weight: 600;
+          background: #bf0000;
+          color: #fff;
+          padding: 1rem 1.4rem;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 899px) {
+  #viewfull {
+    .backtoshop {
+      padding: 150px 0 0 130px;
+      button {
+        margin-top: 20px;
+        text-decoration: underline;
+      }
+    }
+    .div-wrapper {
+      padding: 70px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+@media (max-width: 430px) {
+  #viewfull {
+    .backtoshop {
+      padding: 100px 0 50px 50px;
+      margin: 0 auto;
+    }
+    .div-wrapper {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .big-image {
+        width: 300px;
+        margin: 0 auto;
+      }
+
+      .desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .fullSize {
+          margin: 20px auto;
+        }
+        .product-detail {
+          h1 {
+            font-size: 1.5em;
+            font-weight: 600;
+            line-height: 29px;
+            padding: 0 30px;
+          }
+        }
+        .title {
+          margin-top: 30px;
+          h2 {
+            font-weight: 500;
+            font-size: 1.3rem;
+            padding: 0 30px;
+          }
+        }
+        .price {
+          margin-top: 50px;
+          font-weight: 500;
+          font-size: 15px;
+        }
+        .description {
+          width: auto;
+          margin: 0 auto;
+          p {
+            padding: 20px;
+            font-weight: 500;
+          }
+        }
+        .addToCart {
+          margin-bottom: 30px;
+          button {
+            font-size: 18px;
+            font-weight: 600;
+            background: #bf0000;
+            color: #fff;
+            padding: 1rem 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}

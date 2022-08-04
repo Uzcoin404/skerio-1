@@ -1,0 +1,108 @@
+#brands {
+  .orb {
+    width: 300px;
+    height: 150px;
+    display: inline-block;
+    margin: 0 8px;
+    float: left;
+    transition: all 0.3s ease-out;
+  }
+  .orb img {
+    height: 120px;
+    width: 200px;
+  }
+
+  .orb:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  .marquee {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+  }
+
+  .marquee--inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 150%;
+    margin: 70px 0;
+    position: absolute;
+    animation: marquee 20s linear infinite;
+  }
+
+  .marquee--inner:hover {
+    animation-play-state: paused;
+  }
+
+  .half {
+    float: left;
+    width: 10%;
+  }
+  span {
+    float: left;
+    width: 150%;
+  }
+
+  @keyframes marquee {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+}
+@media (max-width: 430px) {
+  #brands {
+    .orb {
+      width: 100px;
+      height: 200px;
+      display: inline-block;
+      margin: 0 15px;
+      float: left;
+      transition: all 0.3s ease-out;
+    }
+    .orb img {
+      height: 80px;
+      object-fit: contain;
+    }
+    .orb:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    .marquee {
+      height: 200px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      margin: auto;
+    }
+
+    .marquee--inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 200%;
+      margin: 20px 0;
+      position: absolute;
+      animation: marquee 20s linear infinite;
+    }
+
+    .marquee--inner:hover {
+      animation-play-state: paused;
+    }
+
+    .half {
+      float: left;
+      width: 10%;
+    }
+  }
+}

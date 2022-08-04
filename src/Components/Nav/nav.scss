@@ -1,0 +1,278 @@
+#nav {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1001;
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 100px;
+    position: relative;
+    border-bottom: 0.5px solid #bdbdbd;
+    .logo {
+      color: #bf0000;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 52px;
+    }
+    .closeMenu {
+      .closeIcon {
+        display: none;
+      }
+    }
+    .toggle-menu {
+      display: none;
+      transition: all 0.7s ease;
+      &.is-expended {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transition: all 0.5s ease;
+        transition: all 0.7s ease;
+      }
+      .toggle-toggle {
+        display: flex;
+        flex-direction: row;
+        .toggle-item {
+          padding: 0 23px;
+          font-size: 18px;
+          line-height: 22px;
+          font-weight: 500;
+          transition: all 0.2s ease;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+      .login {
+        button {
+          font-weight: 600;
+          font-size: 18px;
+          background: #bf0000;
+          padding: 0.2rem 1.1rem;
+          border-radius: 3px;
+          color: #fff;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        .myprofile {
+          font-size: 12px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: #fff;
+          color: #000;
+          .icons {
+            height: 30px;
+            width: 30px;
+            background-image: url(../../icons/user2.png);
+            background-position: center center;
+            background-size: cover;
+            font-weight: 600;
+          }
+        }
+      }
+      .sport,
+      .language {
+        background-color: #fff;
+        color: #000;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+      }
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        button {
+          font-size: 18px;
+          line-height: 22px;
+          font-weight: 400;
+        }
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        min-width: 120px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-top: 4px solid #bf0000 !important;
+        align-items: start !important;
+      }
+      .dropdown-content button {
+        color: #000;
+        padding: 12px 10px;
+        text-decoration: none;
+        display: block;
+        align-items: start !important;
+      }
+      .dropdown-content button:hover {
+        background-color: #f8f8f8;
+        width: 100%;
+        text-align: start !important;
+        align-items: start;
+      }
+      .dropdown:hover .dropdown-content {
+        display: flex !important;
+        flex-direction: column;
+        align-items: start;
+        align-items: start;
+      }
+      .dropdown:hover .dropbtn {
+        color: #000;
+      }
+    }
+  }
+  .hamburger {
+    position: absolute;
+    top: 32px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    display: none;
+  }
+}
+
+@media (max-width: 896px) {
+  #nav {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    nav {
+      padding: 0;
+      margin: 0 auto;
+      height: 100px;
+      .logo {
+        color: #bf0000;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 42px;
+        padding-left: 30px;
+      }
+      .closeMenu {
+        .closeIcon {
+          position: absolute;
+          top: 48px;
+          right: 45px;
+          color: white;
+          z-index: 1000;
+          display: block;
+        }
+      }
+
+      .toggle-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: start;
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.99);
+        transition: all 1s ease;
+        &.is-expended {
+          display: none;
+          transition: all 0.7s ease;
+        }
+        .toggle-toggle {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 30px;
+          .toggle-item {
+            color: #fff;
+            padding: 15px 0;
+            font-size: 14px !important;
+          }
+        }
+        .login {
+          button {
+            font-weight: 600;
+            font-size: 18px;
+            background: #bf0000;
+            padding: 0.2rem 1.1rem;
+            border-radius: 3px;
+            color: #fff;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+          .myprofile {
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: transparent;
+            color: #fff;
+            .icons {
+              height: 20px;
+              width: 20px;
+              background-position: center center;
+              background-size: cover;
+              font-weight: 600;
+            }
+          }
+        }
+
+        .sport,
+        .language {
+          background-color: #000;
+          color: #fff;
+          padding: 16px;
+          font-size: 16px;
+          border: none;
+        }
+        .dropdown {
+          position: relative;
+          display: inline-block;
+          z-index: 1000;
+          button {
+            font-size: 18px;
+            line-height: 22px;
+            font-weight: 400;
+            color: #fff;
+          }
+        }
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f8f8f8;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          z-index: 1000;
+        }
+        .dropdown-content .a,
+        button {
+          color: #000;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+        .dropdown-content .a:hover {
+          background-color: #f8f8f8;
+        }
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+        .dropdown:hover .dropbtn {
+          color: #fff;
+        }
+      }
+    }
+    .hamburger {
+      display: block;
+    }
+  }
+}

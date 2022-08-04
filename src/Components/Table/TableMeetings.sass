@@ -1,0 +1,842 @@
+.meetings
+    .tableFilter
+        width: 100%
+        display: flex
+        justify-content: space-around
+        padding-top: 120px
+        .selectFilter
+            .cupFilter
+                cursor: pointer
+                background-color: transparent
+                width: auto
+                margin: 32px 100px
+                border: none
+                font-weight: 600
+                font-size: 20px
+                line-height: 24px
+                color: #BF0000
+                option
+                    color: #4B4B4B
+
+            .yearFilter
+                cursor: pointer
+                background-color: transparent
+                border: none
+                width: 122px
+                font-weight: 600
+                font-size: 20px
+                line-height: 24px
+                color: #BF0000
+                option
+                    color: #4B4B4B
+
+        a
+            text-decoration: none
+            color: black
+        .statisticFilter
+            width: 40%
+            display: flex
+            align-items: center
+            justify-content: space-evenly
+            margin-top: 32px
+            margin-bottom: 32px
+            font-weight: 600
+            font-size: 18px
+            line-height: 22px
+            text-decoration: none
+            span
+                cursor: pointer
+                text-decoration: none
+                margin-right: 50px
+            .active
+                cursor: pointer
+                color: #BF0000
+        .searchInput
+            cursor: pointer
+            font-size: 16px
+            width: 200px
+            height: 25px
+            border: none
+            background: transparent
+            border-bottom: 1px solid #bf0000
+            padding: 5px 10px
+            margin: 0 10px
+            display: none
+            transform: translateX(300px)
+            &:focus
+                outline: none
+        .searchPng
+            cursor: pointer
+            margin-right: 100px
+        .searchClose
+            display: none
+            cursor: pointer
+            width: 30px
+            svg
+                width: 30px
+                display: none
+    .tableMeetings
+        .tournament
+            margin-top: 80px
+            margin-left: 100px
+            font-weight: 600
+            font-size: 24px
+            line-height: 29px
+            color: #646363
+
+            text-align: left
+
+        .meet
+            display: flex
+            flex-direction: row
+            justify-content: space-around
+            margin: 20px 100px
+            border-bottom: 2px solid #B3B3B3
+
+            .homeMeet
+                width: 40%
+                display: flex
+                align-items: center
+                .homeImg
+                    width: 85px
+                    height: 85px
+                .homeText
+                    font-weight: 700
+                    font-size: 40px
+                    margin: 20px 25px
+            .timeMeet
+                text-align: center
+                width: 20%
+                display: flex
+                flex-direction: column
+                .timeText
+                    margin-left: -10px
+                    font-style: normal
+                    font-weight: 900
+                    font-size: 15px
+                    color: #000000
+                .timeMeeting
+                    letter-spacing: 17px
+                    font-style: normal
+                    font-weight: 900
+                    font-size: 50px
+                    color: #000000
+            .awayMeet
+                float: right
+                width: 40%
+                display: flex
+                justify-content: right
+                align-items: center
+                .awayText
+                    margin: 20px 25px
+                    font-style: normal
+                    font-weight: 700
+                    font-size: 40px
+                    color: #000000
+                .awayImg
+                    width: 85px
+                    height: 85px
+    .tableMeetingsNew
+        .tournament
+            margin-top: 80px
+            margin-left: 100px
+            font-weight: 600
+            font-size: 24px
+            line-height: 29px
+            color: #646363
+            text-align: left
+
+        .meet
+            display: flex
+            flex-direction: row
+            justify-content: space-around
+            margin: 20px 100px
+            border-bottom: 2px solid #B3B3B3
+
+            .homeMeet
+                width: 40%
+                display: flex
+                align-items: center
+                .homeImg
+                    width: 85px
+                    height: 85px
+                .homeText
+                    font-weight: 700
+                    font-size: 40px
+                    margin: 20px 25px
+            .timeMeet
+                text-align: center
+                width: 20%
+                display: flex
+                flex-direction: column
+                .timeText
+                    margin-left: -10px
+                    font-style: normal
+                    font-weight: 700
+                    font-size: 15px
+                    color: #000000
+                .timeMeeting
+                    letter-spacing: 1px
+                    font-style: normal
+                    font-weight: 700
+                    font-size: 50px
+                    color: #000000
+            .awayMeet
+                float: right
+                width: 40%
+                display: flex
+                justify-content: right
+                align-items: center
+                .awayText
+                    margin: 20px 25px
+                    font-style: normal
+                    font-weight: 700
+                    font-size: 40px
+                    color: #000000
+                .awayImg
+                    width: 85px
+                    height: 85px
+
+@media ( max-width: 1440px )
+    .meetings
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                margin: 5px 40px
+                display: flex
+                .cupFilter
+                    width: 120px
+                    font-size: 18px
+                    margin: 10px
+                .yearFilter
+                    width: 75px
+                    font-size: 18px
+                    margin: 10px
+
+            .statisticFilter
+                width: 40%
+                font-size: 18px
+                margin: 0
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    width: 22px
+                span
+                    margin: 0
+
+        .tableMeetings
+            padding-top: 20px
+            .tournament
+                margin: 0px 30px
+                font-size: 18px
+            .meet
+                margin: 0px 30px
+                .homeMeet
+                    height: 60px
+                    .homeImg
+                        width: 40px
+                        height: auto
+                    .homeText
+                        font-size: 20px
+                        margin: 8px 20px
+                .timeMeet
+                    .timeText
+                        padding-top: 5px
+                        font-size: 15px
+                    .timeMeeting
+                        margin: 0
+                        letter-spacing: 15px
+                        font-size: 30px
+                .awayMeet
+                    .awayText
+                        margin: 8px 20px
+                        font-size: 20px
+                    .awayImg
+                        width: 40px
+                        height: auto
+        .tableMeetingsNew
+            padding-top: 20px
+            .tournament
+                margin: 0px 30px
+                font-size: 18px
+            .meet
+                margin: 0px 30px
+                .homeMeet
+                    height: 60px
+                    .homeImg
+                        width: 40px
+                        height: auto
+                    .homeText
+                        font-size: 20px
+                        margin: 8px 20px
+                .timeMeet
+                    .timeText
+                        padding-top: 5px
+                        font-size: 15px
+                    .timeMeeting
+                        margin: 0
+                        letter-spacing: 5px
+                        font-size: 30px
+                .awayMeet
+                    .awayText
+                        margin: 8px 20px
+                        font-size: 20px
+                    .awayImg
+                        width: 40px
+                        height: auto
+@media ( max-width: 1440px )
+    .meetings
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                margin: 5px 20px
+                display: flex
+                .cupFilter
+                    width: 120px
+                    font-size: 18px
+                    margin: 10px
+                .yearFilter
+                    width: 75px
+                    font-size: 18px
+                    margin: 10px
+
+            .statisticFilter
+                width: 60%
+                font-size: 15px
+                margin: 0
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    width: 18px
+                span
+                    margin: 0
+
+        .tableMeetings
+            padding-top: 20px
+            .tournament
+                margin: 0px 50px
+                font-size: 20px
+            .meet
+                margin: 0px 50px
+                .homeMeet
+                    height: 60px
+                    .homeImg
+                        width: 40px
+                        height: auto
+                    .homeText
+                        font-size: 20px
+                        margin: 8px 20px
+                .timeMeet
+                    .timeText
+                        padding-top: 5px
+                        font-size: 15px
+                    .timeMeeting
+                        margin: 0
+                        letter-spacing: 15px
+                        font-size: 30px
+                .awayMeet
+                    .awayText
+                        margin: 8px 20px
+                        font-size: 20px
+                    .awayImg
+                        width: 40px
+                        height: auto
+        .tableMeetingsNew
+            padding-top: 20px
+            .tournament
+                margin: 0px 50px
+                font-size: 20px
+            .meet
+                margin: 0px 50px
+                .homeMeet
+                    height: 60px
+                    .homeImg
+                        width: 40px
+                        height: auto
+                    .homeText
+                        font-size: 20px
+                        margin: 8px 20px
+                .timeMeet
+                    .timeText
+                        padding-top: 5px
+                        font-size: 15px
+                    .timeMeeting
+                        margin: 0
+                        letter-spacing: 6px
+                        font-size: 30px
+                .awayMeet
+                    .awayText
+                        margin: 8px 20px
+                        font-size: 20px
+                    .awayImg
+                        width: 40px
+                        height: auto
+@media ( max-width: 1024px )
+    .meetings
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                margin: 5px 20px
+                display: flex
+                .cupFilter
+                    width: 100px
+                    font-size: 15px
+                    margin: 10px
+                .yearFilter
+                    width: 65px
+                    font-size: 15px
+                    margin: 10px
+
+            .statisticFilter
+                width: 60%
+                font-size: 15px
+                margin: 0
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    width: 18px
+                span
+                    margin: 0
+
+        .tableMeetings
+            padding-top: 20px
+            .tournament
+                margin: 0px 30px
+                font-size: 18px
+            .meet
+                margin: 0px 30px
+                .homeMeet
+                    height: 50px
+                    .homeImg
+                        width: 30px
+                        height: auto
+                    .homeText
+                        font-size: 18px
+                        margin: 8px 20px
+                .timeMeet
+                    .timeText
+                        padding-top: 5px
+                        font-size: 13px
+                    .timeMeeting
+                        margin: 0
+                        letter-spacing: 15px
+                        font-size: 25px
+                .awayMeet
+                    .awayText
+                        margin: 8px 20px
+                        font-size: 18px
+                    .awayImg
+                        width: 30px
+                        height: auto
+        .tableMeetingsNew
+            padding-top: 20px
+            .tournament
+                margin: 0px 30px
+                font-size: 18px
+            .meet
+                margin: 0px 30px
+                .homeMeet
+                    height: 50px
+                    .homeImg
+                        width: 30px
+                        height: auto
+                    .homeText
+                        font-size: 18px
+                        margin: 8px 20px
+                .timeMeet
+                    .timeText
+                        padding-top: 5px
+                        font-size: 13px
+                    .timeMeeting
+                        margin: 0
+                        letter-spacing: 5px
+                        font-size: 25px
+                .awayMeet
+                    .awayText
+                        margin: 8px 20px
+                        font-size: 18px
+                    .awayImg
+                        width: 30px
+                        height: auto
+@media ( max-width: 768px )
+    .meetings
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                display: flex
+                .cupFilter
+                    width: 80px
+                    font-size: 14px
+                    margin: 5px
+                .yearFilter
+                    width: 70px
+                    font-size: 14px
+                    margin: 5px
+
+            .statisticFilter
+                width: 80%
+                font-size: 14px
+                margin: 0
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    margin: 0
+                    width: 20px
+                .searchClose
+                    width: 20px
+                .searchInput
+                    height: 20px
+                    font-size: 14px
+                span
+                    margin: 10px
+
+        .tableMeetings
+            padding-top: 20px
+            .tournament
+                margin: 0px 30px
+                font-size: 15px
+            .meet
+                margin: 0px 30px
+                .homeMeet
+                    .homeImg
+                        width: 25px
+                        height: auto
+                    .homeText
+                        font-size: 15px
+                        margin: 8px 15px
+                .timeMeet
+                    .timeText
+                        padding-top: 5px
+                        font-size: 12px
+                    .timeMeeting
+                        margin: 0
+                        letter-spacing: 15px
+                        font-size: 28px
+                .awayMeet
+                    .awayText
+                        margin: 8px 15px
+                        font-size: 15px
+                    .awayImg
+                        width: 25px
+                        height: auto
+        .tableMeetingsNew
+            padding-top: 20px
+            .tournament
+                margin: 0px 30px
+                font-size: 15px
+            .meet
+                margin: 0px 30px
+                .homeMeet
+                    .homeImg
+                        width: 25px
+                        height: auto
+                    .homeText
+                        font-size: 15px
+                        margin: 8px 15px
+                .timeMeet
+                    .timeText
+                        padding-top: 5px
+                        display: flex
+                        justify-content: center
+                        font-size: 12px
+                    .timeMeeting
+                        letter-spacing: 3px
+                        font-size: 28px
+                .awayMeet
+                    .awayText
+                        margin: 8px 15px
+                        font-size: 15px
+                    .awayImg
+                        width: 25px
+                        height: auto
+@media ( max-width: 425px )
+    .meetings
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 60%
+                display: flex
+                .cupFilter
+                    width: 68px
+                    font-size: 10px
+                    margin: 5px
+                .yearFilter
+                    width: 50px
+                    font-size: 10px
+                    margin: 5px
+
+            .statisticFilter
+                width: 60%
+                font-size: 10px
+                margin: 0
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    display: none
+                span
+                    margin: 0
+
+        .tableMeetings
+            padding-top: 20px
+            .tournament
+                color: #646363
+
+                margin: 0px 30px
+                font-size: 13px
+            .meet
+                height: 43px
+                margin: 0px 25px
+                .homeMeet
+                    .homeImg
+                        width: 20px
+                        height: auto
+                    .homeText
+                        font-size: 10px
+                        margin: 5px 10px
+                .timeMeet
+                    .timeText
+                        padding-top: 2px
+                        font-size: 8px
+                    .timeMeeting
+                        margin: 0
+                        letter-spacing: 15px
+                        font-size: 15px
+                .awayMeet
+                    .awayText
+                        margin: 5px 10px
+                        font-size: 10px
+                    .awayImg
+                        width: 20px
+                        height: auto
+        .tableMeetingsNew
+            padding-top: 20px
+            .tournament
+                margin: 0px 30px
+                font-size: 13px
+
+            .meet
+                margin: 0px 25px
+                .homeMeet
+                    .homeImg
+                        width: 20px
+                        height: auto
+                    .homeText
+                        font-size: 10px
+                        margin: 5px 10px
+                .timeMeet
+                    .timeText
+                        padding-top: 2px
+                        width: 90px
+                        display: flex
+                        justify-content: center
+                        font-size: 7px
+                    .timeMeeting
+                        letter-spacing: 3px
+                        font-size: 15px
+                .awayMeet
+                    .awayText
+                        margin: 5px 10px
+                        font-size: 10px
+                    .awayImg
+                        width: 20px
+                        height: auto
+@media ( max-width: 375px )
+    .meetings
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                display: flex
+                .cupFilter
+                    width: 68px
+                    font-size: 10px
+                    margin: 5px
+                .yearFilter
+                    width: 50px
+                    font-size: 10px
+                    margin: 5px
+
+            .statisticFilter
+                width: 60%
+                font-size: 10px
+                margin: 0
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    display: none
+                span
+                    margin: 0
+
+        .tableMeetings
+            padding-top: 20px
+            .tournament
+                margin: 0px 30px
+                font-size: 13px
+            .meet
+                margin: 0px 25px
+                .homeMeet
+                    .homeImg
+                        width: 20px
+                        height: auto
+                    .homeText
+                        font-size: 10px
+                        margin: 5px 10px
+                .timeMeet
+                    .timeText
+                        padding-top: 2px
+                        font-size: 8px
+                    .timeMeeting
+                        margin: 0
+                        letter-spacing: 15px
+                        font-size: 15px
+                .awayMeet
+                    .awayText
+                        margin: 5px 10px
+                        font-size: 10px
+                    .awayImg
+                        width: 20px
+                        height: auto
+        .tableMeetingsNew
+            padding-top: 20px
+            .tournament
+                margin: 0px 30px
+                font-size: 13px
+            .meet
+                margin: 0px 25px
+                .homeMeet
+                    .homeImg
+                        width: 20px
+                        height: auto
+                    .homeText
+                        font-size: 10px
+                        margin: 5px 10px
+                .timeMeet
+                    .timeText
+                        padding-top: 2px
+                        width: 80px
+                        display: flex
+                        justify-content: center
+                        font-size: 7px
+                    .timeMeeting
+                        letter-spacing: 3px
+                        font-size: 15px
+                .awayMeet
+                    .awayText
+                        margin: 5px 10px
+                        font-size: 10px
+                    .awayImg
+                        width: 20px
+                        height: auto
+
+@media ( max-width: 320px )
+    .meetings
+        .tableFilter
+            flex-direction: row
+            display: flex
+            justify-content: space-evenly
+            .selectFilter
+                width: 40%
+                display: flex
+                .cupFilter
+                    width: 68px
+                    font-size: 10px
+                    margin: 5px
+                .yearFilter
+                    width: 50px
+                    font-size: 10px
+                    margin: 5px
+
+            .statisticFilter
+                width: 50%
+                font-size: 10px
+                margin: 0
+                display: flex
+                align-items: center
+                justify-content: space-around
+                .searchPng
+                    display: none
+                span
+                    margin: 0
+
+        .tableMeetings
+            padding-top: 20px
+            .tournament
+                margin: 0px 30px
+                font-size: 13px
+            .meet
+                margin: 0px 25px
+                .homeMeet
+                    .homeImg
+                        width: 20px
+                        height: auto
+                    .homeText
+                        font-size: 10px
+                        margin: 5px 10px
+                .timeMeet
+                    .timeText
+                        padding-top: 2px
+                        font-size: 8px
+                    .timeMeeting
+                        margin: 0
+                        letter-spacing: 15px
+                        font-size: 15px
+                .awayMeet
+                    .awayText
+                        margin: 5px 10px
+                        font-size: 10px
+                    .awayImg
+                        width: 20px
+                        height: auto
+        .tableMeetingsNew
+            padding-top: 20px
+            .tournament
+                margin: 0px 30px
+                font-size: 13px
+            .meet
+                margin: 0px 25px
+                .homeMeet
+                    .homeImg
+                        width: 20px
+                        height: auto
+                    .homeText
+                        font-size: 10px
+                        margin: 5px 10px
+                .timeMeet
+                    .timeText
+                        padding-top: 2px
+                        width: 70px
+                        display: flex
+                        justify-content: center
+                        font-size: 7px
+                    .timeMeeting
+                        letter-spacing: 3px
+                        font-size: 15px
+                .awayMeet
+                    .awayText
+                        margin: 5px 10px
+                        font-size: 10px
+                    .awayImg
+                        width: 20px
+                        height: auto

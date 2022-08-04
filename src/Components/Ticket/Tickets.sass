@@ -1,0 +1,749 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat')
+*
+    margin: 0
+    padding: 0
+    font-family: 'Montserrat'
+
+    body
+        overflow-x: hidden
+        #Tickets
+            margin-top: 108.5px
+        .match
+            background-image: url('../../img/bfc.png')
+            background-size: cover
+            background-position: center
+            width: 100%
+            height: 400px
+
+            .matchContent
+                background: linear-gradient(360deg, rgba(191, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 41.15%)
+                width: 100%
+                height: 400px
+
+                .laliga
+                    margin-top: 15px
+                    display: flex
+                    justify-content: center
+                .matchday
+                    display: flex
+                    flex-direction: column
+                    text-align: center
+                    .matchDay
+                        position: relative
+                        height: 17px
+                        padding-top: 10px
+                        font-family: 'Montserrat'
+                        font-style: normal
+                        font-weight: 700
+                        font-size: 14px
+                        line-height: 17px
+                        color: #FFFFFF
+
+                    .day
+                        padding-top: 5px
+                        font-family: 'Montserrat'
+                        font-style: normal
+                        font-weight: 700
+                        font-size: 24px
+                        line-height: 29px
+                        color: #BF0000
+                        span
+                          margin-left: 55px
+        .matchBody
+            display: flex
+            flex-direction: row
+            justify-content: center
+
+            .barsa
+                width: 40%
+                display: flex
+                justify-content: right
+                align-items: center
+
+                span
+                    height: 49px
+                    left: 246px
+                    top: 143px
+                    font-family: 'Montserrat'
+                    font-style: normal
+                    font-weight: 700
+                    font-size: 40px
+                    line-height: 49px
+                    color: #FFFFFF
+
+                img
+                    width: 150px
+                    height: 146.2px
+                    left: 470px
+                    top: 96px
+                    margin-left: 12px
+
+            .kickoff
+                width: 20%
+                display: flex
+                flex-direction: column
+                justify-content: center
+                text-align: center
+
+                .kickofftime
+                    text-align: center
+                    height: 49px
+                    left: 677px
+                    top: 159px
+                    font-family: 'Montserrat'
+                    font-style: normal
+                    font-weight: 700
+                    font-size: 40px
+                    line-height: 49px
+                    color: #FFFFFF
+
+                span
+                    text-align: center
+                    height: 17px
+                    top: 142px
+                    font-family: 'Montserrat'
+                    font-style: normal
+                    font-weight: 700
+                    font-size: 14px
+                    line-height: 17px
+                    color: #FFFFFF
+
+            .vs
+                display: none
+
+            .villareal
+                display: flex
+                align-items: center
+                width: 40%
+
+                span
+                    height: 49px
+                    top: 143px
+                    font-family: 'Montserrat'
+                    font-style: normal
+                    font-weight: 700
+                    font-size: 40px
+                    line-height: 49px
+                    color: #FFFFFF
+
+                img
+                    width: 150px
+                    height: 150px
+                    top: 96px
+        .countReverse
+            color: white
+            width: 74%
+            float: right
+            display: flex
+            align-items: center
+            flex-direction: row
+            padding-top: 50px
+            .countTitle
+                margin-right: 70px
+                font-family: 'Montserrat'
+                font-style: normal
+                font-weight: 600
+                font-size: 22px
+                line-height: 27px
+                color: #FFFFFF
+            .countRev
+
+                .time
+                    left: 570px
+                    top: 299px
+                    font-family: 'Montserrat'
+                    font-style: normal
+                    font-weight: 700
+                    font-size: 48px
+                    letter-spacing: 0.1em
+                    color: #FFFFFF
+                .day
+                    display: flex
+                    justify-content: space-evenly
+                    flex-direction: row
+                    width: 290px
+
+                    .dayText
+                        font-family: 'Montserrat'
+                        font-style: normal
+                        font-weight: 600
+                        font-size: 16px
+                        line-height: 20px
+                        color: #FFFFFF
+
+    .ticketsAlbum1,
+    .ticketsAlbum
+        width: 100%
+        .albumModal
+            margin: 30px 10px
+            width: 320px
+            height: 400px
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.25)
+            border-radius: 10px
+            .albumCart
+                margin: 0 20px
+            .albumImg
+                width: 100%
+                margin: 10px auto
+                .tick1 
+                  height: 200px
+            .albumContent
+                display: flex
+                flex-direction: column
+                .albumTitle
+                    margin: 15px 24px
+                    font-weight: 700
+                    font-size: 18px
+                    line-height: 24px
+                .albumAdress,
+                .albumDate
+                    width: 100%
+                    font-weight: 400
+                    font-size: 14px
+                    color: #999999
+                    margin-left: 24px
+
+                .albumDate
+                    margin-bottom: 14px
+                    height: 14px
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    width: 135px
+                    margin-top: 6px
+                    .calendarImg
+                        width: 14px
+                        height: 14px
+                .albumMoreBtn
+                    width: 120px
+                    height: 40px
+                    margin: 14px 0 28px 24px
+                    border: 1px solid #BF0000
+                    background-color: #fff
+                    font-size: 16px
+                    font-weight: 600
+                    transition: .5s all ease
+                    &:hover
+                        background-color: #BF0000
+                        color: white
+    .ticketsAlbum
+        display: none
+    .albumMore
+        width: 100%
+        text-align: center
+        .seeMore
+            font-size: 28px
+            font-weight: 700
+            cursor: pointer
+            border: none
+            background: #fff
+            text-direction: underline
+            color: black
+
+    .range
+        text-align: center
+        font-weight: 500
+        font-size: 16px
+        line-height: 20px
+        margin-top: 50px
+        .rangeInp
+            display: flex
+            flex-direction: row
+            align-items: center
+            justify-content: center
+            padding-top: 70px
+
+            input[type=range]::-webkit-slider-thumb
+                -webkit-appearance: none
+                height: 30px
+                width: 30px
+                border-radius: 50px
+                background: red
+                cursor: pointer
+                border: none
+
+            input[type=range]
+                -webkit-appearance: none
+                outline: 0
+                height: 20px
+                width: 1030px
+                border-radius: 50px
+                background: #B3B3B3
+
+            .min,
+            .max
+                margin-left: 20px
+                margin-right: 20px
+                font-family: 'Montserrat'
+                font-style: normal
+                font-weight: 700
+                font-size: 28px
+                line-height: 34px
+                color: #000000
+        .titleRange
+            text-align: center
+            width: 100%
+
+    .stadionFilter
+        display: flex
+        flex-direction: row
+        justify-content: space-evenly
+        align-content: center
+        align-items: center
+        margin-bottom: 20px
+
+        .stadion
+            margin: 75px 0px 0px 0px
+            font-weight: 700
+            font-size: 28px
+            line-height: 34px
+            width: 916px
+            height: 648px
+            .stadion1
+                display: flex
+                flex-direction: row
+
+                .s5
+                    cursor: pointer
+                    width: 100px
+                    height: 100px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    background: #BF0000
+                    color: white
+                    margin: 4px 4px 0px 4px
+                    transition: .5s all ease
+
+                    &:hover
+                        background-color: #bf000096
+                .s6
+                    cursor: pointer
+                    width: 100px
+                    height: 100px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    background: #BF0000
+                    color: white
+                    margin: 4px 4px 0px 4px
+                    transition: .5s all ease
+
+                    &:hover
+                        background-color: #bf000096
+
+                .s1
+                    cursor: pointer
+                    background: #BF0000
+                    color: white
+                    margin: 4px 0px 4px 0px
+                    width: 700px
+                    height: 100px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    transition: .5s all ease
+
+                    &:hover
+                        background-color: #bf000096
+
+            .stadion2
+                display: flex
+                flex-direction: row
+
+                .s4
+                    cursor: pointer
+                    background: #BF0000
+                    color: white
+                    margin: 0px 4px 0px 4px
+                    width: 100px
+                    height: 438px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    transition: .5s all ease
+
+                    &:hover
+                        background-color: #bf000096
+
+                    &Text
+                        font-size: 24px
+                        transform: rotate(-90deg)
+                        font-size: 24px
+
+                .stadionImg
+                    width: 700px
+                    height: 437.5px
+
+                .s2
+                    margin: 0px 0px 4px 4px
+                    background: #BF0000
+                    color: white
+                    width: 100px
+                    height: 438px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    cursor: pointer
+                    transition: .5s all ease
+
+                    &:hover
+                        background-color: #bf000096
+                    &Text
+                        font-size: 24px
+                        transform: rotate(90deg)
+                        font-size: 24px
+
+            .stadion3
+                display: flex
+                flex-direction: row
+
+                .s8
+                    width: 100px
+                    height: 100px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    background: #BF0000
+                    color: white
+                    margin: 0px 0px 0px 4px
+                    cursor: pointer
+                    transition: .5s all ease
+                    &:hover
+                        background-color: #bf000096
+
+                .s7
+                    cursor: pointer
+                    margin: 0px 4px 0px 4px
+                    background: #BF0000
+                    color: white
+                    width: 100px
+                    height: 100px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    transition: .5s all ease
+
+                    &:hover
+                        background-color: #bf000096
+
+                .s3
+                    cursor: pointer
+                    margin: 0px 0px 0px 4px
+                    background: #BF0000
+                    color: white
+                    width: 700px
+                    height: 100px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    transition: .5s all ease
+
+                    &:hover
+                        background-color: #bf000096
+        .areaFilter
+            .areaModal
+                margin-top: 50px
+                width: 350px
+                height: 700px
+                background: #fff
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25)
+                border-radius: 10px
+                .number
+                    padding-top: 20px
+                    padding-left: 10px
+                    .ticketsNumber
+                        font-size: 22px
+                        font-weight: 600
+                .areaTitle
+                    position: relative
+                    left: 20px
+                    top: 21px
+                    width: 251px
+                    height: 48px
+                    font-size: 20px
+                    font-weight: 700
+                .areaBody
+                    overflow-y: scroll
+                    border: 1px solid rgba(0, 0, 0, 0.25)
+                    border-right: 0px solid black
+                    border-radius: 10px
+                    width: 310px
+                    height: 530px
+                    padding: 10px 0px 10px 10px
+                    position: relative
+                    left: 20px
+                    top: 30px
+                ::-webkit-scrollbar
+                    background: rgba(0, 0, 0, 0.25)
+                    border-top-right-radius: 10px
+                    border-bottom-right-radius: 10px
+                    width: 7px
+
+                    &-thumb
+                        border-top-right-radius: 10px
+                        border-bottom-right-radius: 10px
+                        background: #FB0000
+
+                .titleArea
+                    margin: 10px
+                    font-weight: 600
+                    font-size: 20px
+                .areaPrice
+                    display: flex
+                    align-items: center
+                    font-size: 16px
+                    font-weight: 400
+                    .priceImg
+                        height: 20px
+                        width: 20px
+                .priceSub
+                    font-size: 14px
+                    margin-left: 5px
+
+@media (max-width: 375px)
+    body
+        .match
+            background-position: bottom
+            background-size: cover
+            background-clip: content-box
+            background-image: url("../../img/bfc_mobile.jpg")
+            width: 100% !important
+            height: 450px
+            .matchContent
+                height: 370px
+                width: 100%
+                .laliga
+                    margin-top: 10px
+                .matchday
+                    .day
+                        font-size: 15px
+
+        .matchBody
+            display: flex
+            flex-direction: row
+            justify-content: space-evenly
+            align-items: center
+            width: 375px
+            margin-top: 20px
+
+            .barsa
+                width: 170px
+                display: flex
+                flex-direction: row
+                img
+                    width: 30px
+                    height: 30px
+                    margin-left: 7px
+
+                span
+                    font-size: 20px
+
+            .kickoff
+                position: absolute
+                width: 375px
+                top: 280px
+                left: 0
+                display: flex
+                justify-content: center
+                align-items: center
+
+                span
+                    font-size: 15px
+                    width: 100px
+
+            .vs
+                display: block
+                text-align: center
+                width: 50px
+                color: white
+                font-weight: 800
+
+            .villareal
+                width: 170px
+                display: flex
+                img
+                    margin-right: 5px
+                    width: 30px
+                    height: 30px
+                span
+                    font-size: 20px
+        .countReverse
+            padding-top: 120px
+            width: 375px
+            flex-direction: column
+            margin-top: -5px
+
+            .countTitle
+                text-align: center
+                margin: 0
+                padding-bottom: 5px
+                width: 160px
+                font-size: 15px
+            .countRev
+                line-height: 10px
+                text-align: center
+                padding-top: 0px
+                .time
+                    font-size: 25px
+                    width: 150px
+                .day
+                    width: 150px
+                    justify-content: space-around
+                    .dayText
+                        font-size: 10px
+
+        .ticketsAlbum1,
+        .ticketsAlbum
+            display: flex
+            flex-direction: row
+            align-items: center
+            justify-content: space-around
+            width: 100%
+            padding: 0px
+            .albumModal
+                margin: 15px
+                width: 40%
+                height: 300px
+                .albumImg
+                    .tick1,
+                    .tick2
+                        width: 130px
+                    .tick2
+                        margin-left: 20px
+                .albumContent
+                    .albumTitle
+                        margin: 5px 10px
+                        font-size: 11px
+                    .albumAdress,
+                    .albumDate
+                        margin-left: 10px
+                        font-size: 10px
+
+                    .albumDate
+                        margin-bottom: 14px
+                        height: 14px
+                        display: flex
+                        align-items: center
+                        justify-content: space-between
+                        width: 100px
+                        margin-top: 6px
+                        .calendarImg
+                            width: 12px
+                            height: 12px
+                    .albumMoreBtn
+                        width: 87%
+                        height: 30px
+                        margin: 0px 0 10px 10px
+                        border: 1px solid #BF0000
+                        background-color: #fff
+                        font-size: 10px
+                        font-weight: 600
+                        transition: .5s all ease
+                        &:hover
+                            background-color: #BF0000
+                            color: white
+
+        .ticketsAlbum
+            display: none
+
+        .range
+            .rangeInp
+                width: 375px
+                padding-top: 10px
+
+                input[type=range]::-webkit-slider-thumb
+                    width: 15px
+                    height: 15px
+
+                input[type=range]
+                    width: 1030px
+                    height: 10px
+
+                .min,
+                .max
+                    font-size: 20px
+
+            .titleRange
+                margin-right: 10px
+                font-size: 15px
+
+    .stadionFilter
+        .stadion
+        .areaFilter
+            display: none !important
+            .areaModal
+                margin-top: 50px
+                width: 300px
+                height: 500px
+                .areaTitle
+                    position: relative
+                    left: 22px
+                    top: 21px
+                    width: 200px
+                    height: 48px
+                    font-size: 14px
+                    font-weight: 600
+
+                .areaBody
+                    overflow-y: scroll
+                    border: 1px solid rgba(0, 0, 0, 0.25)
+                    border-right: 0px solid black
+                    border-radius: 10px
+                    width: 280px
+                    height: 415px
+                    padding: 10px 30px 10px 10px
+                    position: relative
+                    left: 10px
+                    top: 30px
+                ::-webkit-scrollbar
+                    background: rgba(0, 0, 0, 0.25)
+                    border-top-right-radius: 50px
+                    border-bottom-right-radius: 50px
+                    width: 5px
+
+                    &-thumb
+                        border-top-right-radius: 50px
+                        border-bottom-right-radius: 50px
+                        background: #FB0000
+
+                .titleArea
+                    margin: 5px
+                    font-weight: 600
+                    font-size: 15px
+                .areaPrice
+                    font-size: 13px
+                    font-weight: 400
+                    .priceImg
+                        width: 15px
+                        margin: 0px 5px 3.5px
+
+                .priceSub
+                    font-size: 11px
+                    margin-left: 5px
+                hr
+                    margin-top: 10px
+                    margin-bottom: 10px
+
+@media (width: 768px )
+    body
+        width: 100%
+        .Tickets
+            .navbar
+                .logo
+                    width: 20%
+                    span
+                        font-size: 30px
+                        top: 20px
+                        left: 50px
+                .nav
+                    left: 100px
+                    top: 30px
+                    width: 80%
+                    a
+                        font-size: 23px
+            .ticketsAlbum1
+                display: none
+            .stadionFilter
+                .stadion
+                    display: none
