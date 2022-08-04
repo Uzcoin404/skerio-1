@@ -16,6 +16,7 @@ import SortIcon from '@mui/icons-material/Sort';
 import Brands from "../Brands/Brands";
 import Footer from "../Footer/Footer";
 import UserContext from '../../context/userContext';
+import { useGeolocated } from "react-geolocated";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -37,13 +38,18 @@ export default function Areas() {
     axios
       .get(`https://skerio.uz/api/complexCategory/${sportTypeId}`)
       .then((res) => {
-        setData(res.data.data);
-        setData2(res.data.data);
-        setRegion(res.data.data);
+        setData(res.data.data)
+        setData2(res.data.data)
+        setRegion(res.data.data)
       })
-      .catch((err) => console.error(err));
-
+      .catch((err) => console.error(err))
   }, [sportTypeId]);
+
+
+
+  const getMyCurrentLocation = function () {
+     navigator.getMyCurrentLocation();
+  }
 
   const keys = [
     "name",
@@ -90,6 +96,7 @@ export default function Areas() {
       setGetState(false);
     }
   }
+
   return (
     <section id="areas">
       <div>
@@ -138,7 +145,7 @@ export default function Areas() {
             </select>
           </div>
           <div className="location">
-            <LocationOnIcon className="location-icon"/>
+            <LocationOnIcon className="location-icon" onClick={getMyCurrentLocation} />
           </div>
           <div class="box">
             <form name="search">
