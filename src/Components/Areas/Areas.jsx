@@ -45,12 +45,16 @@ export default function Areas() {
       .catch((err) => console.error(err))
   }, [sportTypeId]);
 
+  const [location, setLocation] = useState(null);
 
-
-  const getMyCurrentLocation = function () {
-     navigator.getMyCurrentLocation();
+  const getCurrentLocation = function () {
+    axios.get("https://geolocation-db.com/json/50ad4a90-fd5e-11ec-b463-1717be8c9ff1").then(res => {
+      setLocation(res.data);
+      console.log(res.data);
+    })
   }
 
+  console.log(location)
   const keys = [
     "name",
     "description_uz",
@@ -145,7 +149,7 @@ export default function Areas() {
             </select>
           </div>
           <div className="location">
-            <LocationOnIcon className="location-icon" onClick={getMyCurrentLocation} />
+            <LocationOnIcon className="location-icon" onClick={getCurrentLocation} />
           </div>
           <div class="box">
             <form name="search">
