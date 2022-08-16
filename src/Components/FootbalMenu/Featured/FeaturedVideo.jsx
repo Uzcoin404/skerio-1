@@ -28,23 +28,25 @@ export default function FeaturedVideo() {
                 <div className="featured-describtion">
                     <div className="featured-image" >
                         <div className="image">
-                            <img src={featuredVideo1} />
+                            {/* <img src={featuredVideo1} /> */}
+                            <iframe width="auto" height="auto" src="https://www.youtube.com/embed/Xo6vVtAYtys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div className="footer-desc">
                             <h4>How is liverpool is preparting for the final ?</h4>
                             <div className="video-icon">
-                                <p><SlowMotionVideoIcon style={{ color: 'white', fontSize: '1.5rem' }} />{t("watchvideo")}</p>
+                                {/* <p><SlowMotionVideoIcon style={{ color: 'white', fontSize: '1.5rem' }} />{t("watchvideo")}</p> */}
                             </div>
                         </div>
                     </div>
                     <div className="featured-image mt">
                         <div className="image">
-                            <img src={featuredVideo2} />
+                            {/* <img src={featuredVideo2} /> */}
+                            <iframe width="auto" height="auto" src="https://www.youtube.com/embed/M6b1Yc3vbUs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div className="footer-desc">
-                            <h4>How is liverpool is preparting for the final ?</h4>
+                            <h4>How is real-madrid is preparting for the final ?</h4>
                             <div className="video-icon">
-                                <p><SlowMotionVideoIcon style={{ color: 'white', fontSize: '1.5rem' }} />  {t("watchvideo")}</p>
+                                {/* <p><SlowMotionVideoIcon style={{ color: 'white', fontSize: '1.5rem' }} />  {t("watchvideo")}</p> */}
                             </div>
                         </div>
                     </div>

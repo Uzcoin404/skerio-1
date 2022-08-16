@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserContextProvider from "./context/userProvider";
 import { LikeContext } from "./context/likeSending";
@@ -30,15 +30,21 @@ import i18next from "i18next";
 import "./App.css";
 
 const App = () => {
-  const [singleValue, setSingleNews] = useState("uz");
+  const [singleValue, setSingleNews] = useState(
+    window.localStorage.getItem("singleValue") || "uz"
+  );
+
+  useEffect(() => {
+    window.localStorage.setItem("singleValue", singleValue);
+  }, [singleValue]);
 
   const getLanguage = function (lang) {
     const i18nextLang = i18next.changeLanguage(lang);
 
     if (lang === "uz") {
       return setSingleNews("uz");
-    } else if (lang === "en") {
-      return setSingleNews("en");
+    } else if (lang === "eng") {
+      return setSingleNews("eng");
     } else if (lang === "ru") {
       return setSingleNews("ru");
     }

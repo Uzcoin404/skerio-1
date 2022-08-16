@@ -14,17 +14,15 @@ import { Link, useParams } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import axios from "axios";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import MapPicker from 'react-google-map-picker'
-const DefaultZoom = 25;
 
 
 function Mapping() {
     const [defaultLocation, setDefaultLocation] = useState({ lat: 40, lng: 65 });
-    const [zoom, setZoom] = useState(DefaultZoom);
     const { id } = useParams();
     const [data, setData] = useState({});
 
-    useEffect(() => { axios.get('https://skerio.uz/api/complex/' + id)
+    useEffect(() => {
+        axios.get('https://skerio.uz/api/complex/' + id)
             .then(function (response) {
                 setData(response.data)
                 setDefaultLocation({ lat: response?.data?.lat * 1, lng: response?.data?.lng * 1 })
@@ -40,9 +38,11 @@ function Mapping() {
                 <Nav />
 
                 <div className="mapping">
-                    <Link to={'/areas'}>
-                        <h2><KeyboardArrowLeftIcon />  {t("back")}</h2>
-                    </Link>
+                    <div className="back">
+                        <Link to={'/areas'}>
+                            <h2><KeyboardArrowLeftIcon />  {t("back")}</h2>
+                        </Link>
+                    </div>
                     <div className="about">
                         <div className="map">
                             <YMaps>
@@ -63,9 +63,9 @@ function Mapping() {
                                     <p className='area_items'><LocationOnIcon />{data?.address}</p>
                                 </div>
                                 <div className="second">
-                                    <p className='area_items'><MeetingRoomIcon />Dress room:{data?.dress_room}</p>
-                                    <p className='area_items'><AddLocationAltIcon />Location:</p>
-                                    <p className='area_items'><FastfoodIcon />Food:{data?.food}</p>
+                                    <p className='area_items'><MeetingRoomIcon /> {t('dressrooms')} :{data?.dress_room}</p>
+                                    <p className='area_items'><AddLocationAltIcon /> {t('location')} :</p>
+                                    <p className='area_items'><FastfoodIcon /> {t('food')} :{data?.food}</p>
                                 </div>
                             </div>
                             <div className="area_descr">{data?.description}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also t</div>

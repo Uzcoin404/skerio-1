@@ -1,9 +1,29 @@
 #ground {
   width: 100%;
-  background: #f8f8f8;
+  background: #f8f8f8 !important;
+  max-width: 1720px;
+  margin: 0 auto;
   .ground-title {
+    @media only screen and (max-width: 430px) {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      padding: 50px 0 50px 0px !important;
+
+      width: 100% !important;
+    }
     padding: 50px 0 50px 100px;
     h2 {
+      @media only screen and (max-width: 430px) {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 30px !important;
+      }
+      @media only screen and (max-width: 320px) {
+        font-size: 27px !important;
+      }
       font-family: Montserrat;
       font-style: Bold;
       font-weight: 700;
@@ -13,6 +33,13 @@
     }
   }
   .ground-main {
+    @media only screen and (max-width: 430px) {
+      width: 100% !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
     width: 137%;
     display: flex;
     flex-direction: row;
@@ -20,6 +47,15 @@
     justify-content: center;
     -ms-overflow-style: none;
     .ground-card {
+      @media only screen and (max-width: 360px) {
+        width: 100% !important;
+      }
+      @media only screen and (max-width: 430px) {
+        display: flex !important;
+        margin: 0px !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+      }
       width: 1040px;
       height: 250px;
       margin: 50px 430px;
@@ -35,6 +71,7 @@
       border-radius: 10px;
       .card-left {
         padding: 50px 0 0 31px;
+
         .card-title {
           margin-top: -10px;
           h2 {

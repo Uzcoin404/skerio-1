@@ -13,8 +13,8 @@ export default function User() {
     const [user, setUser] = useState([])
 
     const getMyID = window.localStorage.getItem("token") !== null ? localStorage.getItem("token") : null;
-    // const decoded = getMyID === null ? 0 : jwt_decode(getMyID);
-    // const myID = decoded.sub;
+    const decoded = getMyID === null ? 0 : jwt_decode(getMyID);
+    const myID = decoded.sub;
 
     useEffect(() => {
         let myHeaders = new Headers();

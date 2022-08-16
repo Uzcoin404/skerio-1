@@ -2,7 +2,7 @@ import React from 'react'
 import {Main,ErrorImg} from './404style'
 import Error from '../../img/404.gif'
 
-const success = () => {
+const Success = () => {
   return (
     <Main>
      <ErrorImg src={Error} />
@@ -10,4 +10,4 @@ const success = () => {
   )
 }
 
-export default success
+export default Success;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext, createContext } from 'react';
 import { connect } from "react-redux";
 import { loadCurrentItem, addToCart } from "../../../redux/Shopping/shopping-actions";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,10 +12,15 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import 'swiper/css/bundle';
+import { LanguageContext } from "../../../lanContext";
+
 
 function ShopCard({ data, addToCart, loadCurrentItem }) {
 
-    const getMyID = window.localStorage.getItem("token") !== null ? localStorage.getItem("token") : null;
+
+    const singleNews = useContext(LanguageContext);
+
+    const getMyID = localStorage.getItem("token") !== null ? localStorage.getItem("token") : null;
     const decoded = getMyID === null ? 0 : jwt_decode(getMyID);
     const myID = decoded.sub;
 
@@ -24,9 +29,8 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
     myHeaders.append("Authorization", `Bearer ${getMyID}`);
 
     const [render, setrender] = useState(false);
-    const [like, setLike] = useState(false);
 
-    const likeButtonComponent = (newsid, btnId) => {
+    const likeButtonComponent = function (newsid, btnId) {
         var formdata = new FormData();
         formdata.append("user_id", btnId);
         formdata.append("product_id", newsid);
@@ -36,25 +40,14 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
             body: formdata,
             redirect: 'follow'
         };
-
         fetch("https://skerio.uz/api/shoplike", requestOptions)
             .then(res => res.text())
             .then((res) => {
                 setrender(res);
-                console.log(res);
+                console.log(res)
             })
             .catch(error => console.log('error', error));
 
-        const getLike = function () {
-            data?.filter(item => {
-                if (item.id === render) {
-                    return setLike(true);
-                } else {
-                    return setLike(false);
-                }
-            });
-        }
-        return getLike(newsid);
     }
 
     const [login, setLogin] = useState("");
@@ -67,7 +60,6 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
         }
     }
 
-    console.log(data)
     return (
         <section id="shopcard" data-aos="fade-left">
             <Swiper style={{
@@ -111,7 +103,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
                             <img src={'https://skerio.uz/admin/images/teams/' + item.team_id} />
                             <FavoriteIcon
                                 onClick={() => likeButtonComponent(item.id, myID)}
-                                className={like ? 'liked' : 'unliked'}
+                                className={item.like ? 'liked' : 'unliked'}
                             />
                             <div className="discount">
                                 <p>{item.discount}%</p>
@@ -125,7 +117,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
                         <div className="card-footer">
                             <div className="club-name">
                                 <h4>{item.name}</h4>
-                                <p>{item.price}</p>
+                                <p>{item.price} Sum</p>
                             </div>
                             <button onClick={() => checkIfLoggedIn(item.id)}>
                                 <Link to={login}> <AddShoppingCartIcon style={{ color: "#fff" }} /></Link>
@@ -169,7 +161,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
                         <div className="card-top-icon">
                             <img src={'https://skerio.uz/admin/images/teams/' + item.team_id} />
                             <FavoriteIcon onClick={() => likeButtonComponent(item.id, myID)}
-                                className={like ? 'liked' : 'unliked'}
+                                className={item.like ? 'liked' : 'unliked'}
                             />
                             <div className="discount">
                                 <p>{item.discount}%</p>
@@ -183,7 +175,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
                         <div className="card-footer">
                             <div className="club-name">
                                 <h4>{item.name}</h4>
-                                <p>{item.price}</p>
+                                <p>{item.price} Sum</p>
                             </div>
                             <button onClick={() => checkIfLoggedIn(item.id)}>
                                 <Link to={login}> <AddShoppingCartIcon style={{ color: "#fff" }} /></Link>
@@ -234,7 +226,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
                         <div className="card-top-icon" >
                             <img src={'https://skerio.uz/admin/images/teams/' + item.team_id} />
                             <FavoriteIcon onClick={() => likeButtonComponent(item.id, myID)}
-                                className={like ? 'liked' : 'unliked'}
+                                className={item.like ? 'liked' : 'unliked'}
                             />
                             <div className="discount">
                                 <p>{item.discount}%</p>
@@ -248,7 +240,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
                         <div className="card-footer">
                             <div className="club-name">
                                 <h4>{item.name}</h4>
-                                <p>{item.price}</p>
+                                <p>{item.price} Sum</p>
                             </div>
                             <button onClick={() => checkIfLoggedIn(item.id)}>
                                 <Link to={login}> <AddShoppingCartIcon style={{ color: "#fff" }} /></Link>
@@ -296,7 +288,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
                         <div className="card-top-icon">
                             <img src={'https://skerio.uz/admin/images/teams/' + item.team_id} />
                             <FavoriteIcon onClick={() => likeButtonComponent(item.id, myID)}
-                                className={like ? 'liked' : 'unliked'}
+                                className={item.like ? 'liked' : 'unliked'}
                             />
                             <div className="discount">
                                 <p>{item.discount}%</p>
@@ -310,7 +302,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
                         <div className="card-footer">
                             <div className="club-name">
                                 <h4>{item.name}</h4>
-                                <p>{item.price}</p>
+                                <p>{item.price} Sum</p>
                             </div>
                             <button onClick={() => checkIfLoggedIn(item.id)}>
                                 <Link to={login}> <AddShoppingCartIcon style={{ color: "#fff" }} /></Link>
@@ -361,7 +353,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
                         <div className="card-top-icon" >
                             <img src={'https://skerio.uz/admin/images/teams/' + item.team_id} />
                             <FavoriteIcon onClick={() => likeButtonComponent(item.id, myID)}
-                                className={like ? 'liked' : 'unliked'}
+                                className={item.like ? 'liked' : 'unliked'}
                             />
                             <div className="discount">
                                 <p>{item.discount}%</p>
@@ -375,7 +367,7 @@ function ShopCard({ data, addToCart, loadCurrentItem }) {
                         <div className="card-footer">
                             <div className="club-name">
                                 <h4>{item.name}</h4>
-                                <p>{item.price}</p>
+                                <p>{item.price} Sum</p>
                             </div>
                             <button onClick={() => checkIfLoggedIn(item.id)}>
                                 <Link to={login}> <AddShoppingCartIcon style={{ color: "#fff" }} /></Link>

@@ -1,15 +1,15 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { Swiper, SwiperSlide } from "swiper/react";
 import UserContext from "../../../context/userContext";
 import { Pagination } from "swiper";
 import { loadCurrentItem, addToCart } from "../../../redux/Shopping/shopping-actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -25,19 +25,47 @@ const FunStore = function ({ addToCart, loadCurrentItem }) {
   const userCtx = useContext(UserContext);
   const { sportTypeId } = userCtx;
 
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    axios.get(`https://skerio.uz/api/product/${sportTypeId}`).then((res) => {
-      setData(res.data.data);
-    });
-  }, [sportTypeId]);
   const { t } = useTranslation();
 
-  const [like, setLike] = useState(true);
-  const getLike = function () {
-    setLike(like === false ? true : false);
-    if (!like) return;
-  };
+  // ---like function ---
+  const getMyID = localStorage.getItem("token") !== null ? localStorage.getItem("token") : null;
+  const decoded = getMyID === null ? 0 : jwt_decode(getMyID);
+  const myID = decoded.sub;
+
+  let myHeaders = new Headers();
+  myHeaders.append("Accept", "application/json");
+  myHeaders.append("Authorization", `Bearer ${getMyID}`);
+
+  const [render, setrender] = useState(false);
+
+  const likeButtonComponent = function (newsid, btnId) {
+    var formdata = new FormData();
+    formdata.append("user_id", btnId);
+    formdata.append("product_id", newsid);
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: formdata,
+      redirect: 'follow'
+    };
+    fetch("https://skerio.uz/api/shoplike", requestOptions)
+      .then(res => res.text())
+      .then((res) => {
+        setrender(res);
+      })
+      .catch(error => console.log('error', error));
+
+  }
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const config = {
+      headers: { Authorization: `Bearer ${getMyID}` }
+    };
+    axios.get(`https://skerio.uz/api/product/${sportTypeId}`, config).then((res) => {
+      setData(res.data.data);
+    });
+  }, [sportTypeId, data, getMyID]);
 
   const [login, setLogin] = useState("");
   const myToken = window.localStorage.getItem('token');
@@ -95,7 +123,8 @@ const FunStore = function ({ addToCart, loadCurrentItem }) {
             <SwiperSlide className="store-card" key={index} >
               <div className="card-top-icon" >
                 <img src={'https://skerio.uz/admin/images/teams/' + item.team_id} />
-                <FavoriteBorderIcon onClick={getLike} className={`liked ${like ? 'unliked' : ''}`} />
+                <FavoriteIcon onClick={() => likeButtonComponent(item.id, myID)}
+                  className={item.like ? 'liked' : 'unliked'} />
                 <div className="discount">
                   <p>{item.discount}%</p>
                 </div>

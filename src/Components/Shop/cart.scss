@@ -1,15 +1,15 @@
 .cart {
   background: #fff;
-  margin: 2rem auto;
-  width: 1200px;
   display: flex;
   justify-content: space-between;
   margin-top: 150px;
-  height: 80vh;
+  max-height: 80vh;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   overflow-y: scroll;
+  max-width: 1000px;
+  margin: 7rem auto;
   &::-webkit-scrollbar {
     display: none;
   }

@@ -8,9 +8,12 @@ import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import Brands from "../Brands/Brands";
 import Footer from "../Footer/Footer";
+import { useTranslation } from 'react-i18next';
+
 
 export default function Table() {
 
+  const { t } = useTranslation();
   const [search2, setSearch2] = useState("");
   const searching = function (items) {
     items.filter((item) => {
@@ -73,10 +76,10 @@ export default function Table() {
       <div className="tableFilter">
         <div className="selectFilter">
           <select className="cupFilter">
-            <option value="laliga">LaLiga</option>
-            <option value="uefa">UEFA cup</option>
-            <option value="euroCup">Euro Cup</option>
-            <option value="italyCup">Italy Cup</option>
+            <option value="laliga">{t('laliga')}</option>
+            <option value="uefa"> {t('uefa')} </option>
+            <option value="euroCup"> {t('ueroCup')} </option>
+            <option value="italyCup"> {t('italyCup')} </option>
           </select>
           <select className="yearFilter">
             <option value="2022">2022</option>
@@ -91,13 +94,13 @@ export default function Table() {
         </div>
         <div className="statisticFilter">
           <Link to="/table">
-            <span className="statistics active">Statistics</span>
+            <span className="statistics active"> {t('statistic')} </span>
           </Link>
           <Link to="/table/meeting">
-            <span className="meetings">Meetings</span>
+            <span className="meetings"> {t('meeting')} </span>
           </Link>
-          <Link to="/schedule">
-            <span className="schedule">Schedule</span>
+          <Link to="/table/schedule">
+            <span className="schedule"> {t('schedule')} </span>
           </Link>
           <input
             type="text"
@@ -145,15 +148,15 @@ export default function Table() {
         <table className="table" style={{ marginTop: "100px" }}>
           <thead>
             <tr>
-              <th className="table-name">Name</th>
-              <th className="table-team">Team</th>
-              <th className="table-goal">Goal Scored</th>
-              <th className="table-games">Games</th>
-              <th className="table-goalmatch">Goals Match</th>
+              <th className="table-name">{t('tName')}</th>
+              <th className="table-team"> {t('tTeam')} </th>
+              <th className="table-goal"> {t('tGoal')} </th>
+              <th className="table-games"> {t('tGames')} </th>
+              <th className="table-goalmatch">{t('tGoalMatch')}</th>
             </tr>
           </thead>
           <tbody>
-            {data.map(post => 
+            {data.map(post =>
               <>
                 <tr>
                   <td className="id-table">{post.id}</td>
@@ -195,8 +198,8 @@ export default function Table() {
             ))} */}
           </div>
           <div className="seeMoreTable" onClick={seeMoreFunc}>
-            <span className="seeMoreTableText">See More</span>
-            <span className="seeMoreTableTextClose">Close</span>
+            <span className="seeMoreTableText"> {t('tSeeMore')} </span>
+            <span className="seeMoreTableTextClose">{t('tClose')}</span>
           </div>
         </table>
       </div>

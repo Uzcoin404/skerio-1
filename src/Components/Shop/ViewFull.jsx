@@ -14,8 +14,6 @@ import "./viewfull.scss";
 function ViewFull({ current, addToCart, cart }) {
   const [data, setData] = useState([]);
 
-  let {id} = useParams();
-
   useEffect(() => {
     axios.get("https://skerio.uz/api/size").then((res) => {
       setData(res.data.data);
@@ -64,9 +62,9 @@ function ViewFull({ current, addToCart, cart }) {
       <Nav />
       <div className="backtoshop">
         <Link to="/shop">
-          <button>
+          <h2>
             <ArrowBackIosIcon /> {t("back")}
-          </button>
+          </h2>
         </Link>
       </div>
       <div className="div-wrapper">

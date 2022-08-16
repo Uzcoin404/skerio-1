@@ -26,7 +26,6 @@ export default function Newsfull() {
             axios.get('https://skerio.uz/api/news/' + id)
                 .then(function (response) {
                     setData(response.data)
-                    console.log(response.data.data)
                 })
         } catch (err) {
             console.error(err);
@@ -39,7 +38,6 @@ export default function Newsfull() {
         history(-1);
     }
 
-    console.log(singleNews);
 
     return (
         <section id="full-news">

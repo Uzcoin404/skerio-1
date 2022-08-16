@@ -9,13 +9,14 @@ import Brands from '../Brands/Brands';
 import Footer from '../Footer/Footer';
 import ShopCard from '../Shop/ShopCard/ShopCard';
 import Slider1 from '../Shop/Slider1/Slider1';
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import UserContext from '../../context/userContext';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import jwt_decode from "jwt-decode";
 import './shop.scss';
+import { LanguageContext } from "../../lanContext";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -27,61 +28,82 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 
-function Shop({ cart, singleNews }) {
+function Shop({ cart }) {
 
     const { t } = useTranslation();
     const userCtx = useContext(UserContext);
+    const singleNews = useContext(LanguageContext);
     const { sportTypeId } = userCtx;
     const filterBtns = [
         {
             id: 1,
-            name: 'ALL',
+            name_uz: 'Barchasi',
+            name_ru: 'Все',
+            name_en: 'All',
             categoryBtn: ""
         },
         {
             id: 2,
-            name: 'T-shirts',
+            name_uz: 'Futbolkalar',
+            name_ru: 'Футболки',
+            name_en: 'T-shirts',
             categoryBtn: 'FUTBOLKA'
         },
         {
             id: 3,
-            name: 'Shorts',
+            name_uz: 'Shorti',
+            name_ru: 'Шорты',
+            name_en: 'Shorts',
             categoryBtn: 'SHORTIK'
         },
         {
             id: 4,
-            name: 'Balls',
+            name_uz: `To'plar`,
+            name_ru: 'Мячи',
+            name_en: 'Balls',
             categoryBtn: 'SPORT MOLLARI'
         },
         {
             id: 5,
-            name: 'Caps',
+            name_uz: 'Qepkalar',
+            name_ru: 'Кепки',
+            name_en: 'Caps',
             categoryBtn: "AKSESUAR"
         },
         {
             id: 5,
-            name: 'Bags',
+            name_uz: 'Sumkalar',
+            name_ru: 'Сумки',
+            name_en: 'Bags',
             categoryBtn: "SUMKALAR"
         },
     ];
+
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
     const [category, setCategory] = useState(filterBtns[0].categoryBtn);
     const dispatch = useDispatch();
     const [cartCount, setCartCount] = useState(0);
     let count = 0;
+
     const [axiosErr, setAxiosErr] = useState("");
 
+    const getMyID = localStorage.getItem("token") !== null ? localStorage.getItem("token") : null;
 
     useEffect(() => {
-        axios.get(`https://skerio.uz/api/product/${sportTypeId}`).then(res => {
-            setData(res.data.data);
-            dispatch({ type: 'Add_to_products', payload: res.data.data });
-            setData2(res.data.data);
-        }).catch((err) => {
-            setAxiosErr("Error: " + err.message)
-        });
-    }, [dispatch, sportTypeId, cart]);
+        const config = {
+            headers: { Authorization: `Bearer ${getMyID}` }
+        };
+
+        axios(`https://skerio.uz/api/product/${sportTypeId}`, config)
+            .then(res => {
+                setData(res.data.data);
+                dispatch({ type: 'Add_to_products', payload: res.data.data });
+                setData2(res.data.data);
+            }).catch((err) => {
+                setAxiosErr("Error: " + err.message)
+            });
+    }, [dispatch, sportTypeId, cart, getMyID]);
 
     useEffect(() => {
         cart.forEach((item) => (
@@ -108,6 +130,7 @@ function Shop({ cart, singleNews }) {
         )
     }
 
+
     return (
         <section >
             <div>
@@ -123,7 +146,7 @@ function Shop({ cart, singleNews }) {
                                     <button onClick={() => filterBtnHandler(buttons.categoryBtn)} key={index}
                                         className={buttons.categoryBtn === category ? "activeBtn" : ""}
                                     >
-                                        {buttons.name}
+                                        {singleNews == "uz" ? buttons.name_uz : singleNews == "ru" ? buttons.name_ru : buttons.name_en}
                                     </button>
                                 )}
                             </div>
@@ -139,11 +162,6 @@ function Shop({ cart, singleNews }) {
                             </div>
                         </div>
                         <div className="busket">
-                            {/* <Link to="/shop/cart">
-                                <Badge badgeContent={cartCount} color="primary">
-                                    <ShoppingCartCheckoutIcon style={{ fontSize: '1.8rem' }} />
-                                </Badge>
-                            </Link> */}
                             <IconButton aria-label="cart">
                                 <Link to="/shop/cart">
                                     <StyledBadge badgeContent={cartCount} color="secondary">

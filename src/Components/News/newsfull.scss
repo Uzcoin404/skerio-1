@@ -2,15 +2,23 @@
   width: 100%;
   height: auto;
   .full-wrapper {
-    width: 80%;
-    margin: 120px auto 0 auto;
+    margin: 140px auto 0 auto;
+    max-width: 1260px;
     .back {
       margin-bottom: 20px;
+      width: 110px;
       h2 {
         font-size: 24px;
         font-weight: 600;
         line-height: 29.25px;
         cursor: pointer;
+        &:hover {
+          background: rgba(191, 0, 0, 0.7);
+          width: 110px;
+          padding: 0.6px 0.6px;
+          border-radius: 3px;
+          color: #fff;
+        }
       }
     }
     .header {
