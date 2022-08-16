@@ -9,6 +9,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import UserContext from '../../context/userContext'
 import Divider from '@mui/material/Divider';
 import { ExampleContext } from "../News/context"
+import { LanguageContext } from "../../lanContext"
 import './nav.scss';
 
 const language = [
@@ -39,6 +40,8 @@ export default function Nav() {
     const handleSportId = async function (item) {
         changeSportTypeId(item.id);
     }
+
+    const singleNews = useContext(LanguageContext);
 
     const [toggleMenu, setToggleMenu] = useState(true);
 
@@ -92,9 +95,6 @@ export default function Nav() {
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/shop">{t("shop")}</NavLink>
                         </li>
-                        {/* <li className="toggle-item" activeClass="active">
-                            <NavLink to="/tickets">{t("tickets")}</NavLink>
-                        </li> */}
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/table">{t("table")}</NavLink>
                         </li>
@@ -109,9 +109,9 @@ export default function Nav() {
                                 {data.map(item =>
                                     <>
                                         <button
-                                            style={{ width: "100%", textAlign: "start" }}
+                                            style={{ width: "100%", textAlign: "start" }} 
                                             className="a" onClick={() => handleSportId(item)}>
-                                            {item.sport_name_en}
+                                            {singleNews === 'uz' ? item.sport_name_uz : singleNews === 'eng' ? item.sport_name_en : item.sport_name_ru}
                                             <Divider />
                                         </button>
                                     </>

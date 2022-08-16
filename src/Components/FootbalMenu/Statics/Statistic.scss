@@ -2,6 +2,8 @@
   width: 100%;
   height: auto;
   background-color: #f8f8f8;
+  max-width: 1720px;
+  margin: 0 auto;
   .statistic-title {
     padding: 50px 0 0 100px;
     background-color: #f8f8f8;
@@ -25,9 +27,12 @@
       justify-content: space-between;
       .right-img {
         flex: 0.3;
+        width: 396px;
+        height: 396px;
         img {
           width: 396px;
           height: 396px;
+          object-fit: contain;
         }
       }
       .right-desc {
@@ -88,6 +93,7 @@
           font-size: 24px;
           line-height: 29px;
           line-height: 100%;
+          line-height: 15px;
         }
         .table-results {
           margin-top: 43px;
@@ -120,13 +126,17 @@
     .left-line {
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: center;
+      padding: 0 23px;
       overflow: hidden;
       .left-img {
+        height: 148px;
+        width: 117px;
         img {
           height: 148px;
           width: 117px;
+          object-fit: contain;
         }
       }
       .right-desc {
@@ -216,19 +226,23 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding: 0 23px;
   width: auto;
   overflow: hidden;
   .left-img {
+    height: 148px;
+    width: 117px;
     img {
       height: 148px;
       width: 117px;
+      object-fit: contain;
     }
   }
   .right-desc {
     h4 {
       font-weight: 700px;
-      line-height: 30px;
+      line-height: 15px;
       font-size: 24px;
       color: #bf0000;
     }

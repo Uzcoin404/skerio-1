@@ -99,7 +99,7 @@ export default function Table() {
           <Link to="/table/meeting">
             <span className="meetings"> {t('meeting')} </span>
           </Link>
-          <Link to="/schedule">
+          <Link to="/table/schedule">
             <span className="schedule"> {t('schedule')} </span>
           </Link>
           <input

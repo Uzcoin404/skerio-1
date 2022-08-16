@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
 import AOS from 'aos';
 import "swiper/css";
 import "swiper/css/pagination";
@@ -18,7 +19,7 @@ export default function Ground() {
 
     useEffect(() => {
         try {
-            axios.get('https://skerio.uz/api/complex/1').then(res => {
+            axios.get('https://skerio.uz/api/complexCategory/1').then(res => {
                 setData(res.data.data);
             })
         } catch (err) {
@@ -83,7 +84,9 @@ export default function Ground() {
                                         </p>
                                     </div>
                                     <div className="card-button">
-                                        <button>Contact Us</button>
+                                        <Link to={"/areas/mapping/" + value.id}>
+                                            <button> {t('contactArea')} </button>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="ground-right">

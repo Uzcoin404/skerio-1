@@ -1,6 +1,8 @@
 #store {
   width: 100%;
   background-color: #fff;
+  max-width: 1720px;
+  margin: 0 auto;
   .store-title {
     padding: 50px 100px;
     h2 {
@@ -55,9 +57,12 @@
         .liked {
           color: #bf0000;
           font-size: 2rem;
-          &.unliked {
-            color: #000;
-          }
+          cursor: pointer;
+        }
+        .unliked {
+          color: #d8dbe2;
+          font-size: 2rem;
+          cursor: pointer;
         }
         .discount {
           position: absolute;

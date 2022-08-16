@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { YMaps, Map, Placemark } from "react-yandex-maps";
 
-function AreaMap() {
+function AreaMap({ location = null, data1 = null }) {
+    console.log(location);
 
-    const [data, setData] = useState(null);
-
-    useEffect(() => {
-        fetch('http://skerio.uz/public/api/complexFind', {method: "GET"})
-        .then((response) => {
-            let res = JSON.parse(response);
-            console.log(res);
-        })
-    }, [])
-
-    // if (data) {
+    function showMap(data) {
         return (
             <YMaps>
                 <Map
@@ -24,10 +15,19 @@ function AreaMap() {
                     width="100%"
                     height="400px"
                 >
-                    <Placemark geometry={[40.7, 70.2]} />
+                    {data.map((row) => {
+                        console.log(row.lat, row.lng);
+                        return <Placemark geometry={[row.lat, row.lng]} />;
+                    })}
                 </Map>
             </YMaps>
-        );
-    // }
+        )
+    }
+    console.log(location, data1);
+    if (location && location.hasOwnProperty(0)) {
+        return showMap(location);
+    } else if (data1) {
+        return showMap(data1);
+    }
 }
 export default AreaMap;

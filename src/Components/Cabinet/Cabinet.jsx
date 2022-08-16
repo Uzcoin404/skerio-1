@@ -16,7 +16,7 @@ export default function Cabinet() {
 
     let navigate = useNavigate();
     const handleHistory = () => {
-        navigate("/");
+        navigate(-1);
     }
 
     const getRemoveAccount = function () {

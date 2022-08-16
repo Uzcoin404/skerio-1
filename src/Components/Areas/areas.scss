@@ -1,7 +1,9 @@
 #areas {
   overflow-x: none;
+  max-width: 1450px;
+  margin: 0 auto;
   .areas-wrapper {
-    margin: 0 100px 0 50px;
+    // margin: 0 100px 0 50px;
     padding-top: 150px;
 
     .title-buttons {
@@ -106,6 +108,7 @@
       justify-content: center;
       width: 100%;
       align-items: center;
+      overflow: hidden;
       .areas-cards {
         width: 420px;
         height: 800px;

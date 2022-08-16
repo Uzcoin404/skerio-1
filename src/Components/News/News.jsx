@@ -25,9 +25,9 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 600,
     bgcolor: 'background.paper',
-    border: '1.5px solid #bf0000',
     boxShadow: 24,
     p: 4,
+    borderRadius: "10px"
 };
 
 export default function News() {
@@ -100,7 +100,6 @@ export default function News() {
             .then(res => res.text())
             .then((res) => {
                 setrender(res);
-                console.log(res);
             })
             .catch(error => console.log('error', error));
 
@@ -166,221 +165,223 @@ export default function News() {
     }, [popular.length]);
 
     return (
-        <section id="news">
-            <div>
-                <Nav />
-            </div>
-            <div className="news-title" data-aos="fade-right">
-                <div className="title-left">
-                    {buttons.map(btn =>
-                        <button
-                            className={btn.categ === category ? 'active-categ' : "buttons"} onClick={() => filterHandling(btn.categ)} key={btn.id}>
-                            {singleNews === 'uz' ? btn.name_uz : singleNews !== 'eng' ? btn.name_ru : btn.name_en}
-                        </button>
-                    )}
+        <>
+            <section id="news">
+                <div>
+                    <Nav />
                 </div>
-            </div>
-            <div className="main-body" >
-                <div className="body-left">
-                    {data2.map((value) =>
-                        <div className="firts-card" data-aos="fade-right" key={value.id}>
-                            <div className="card-img">
-                                <img src={'https://skerio.uz/admin/images/news/' + value.image} />
-                            </div>
-                            <div className="card-desc">
-                                <div className="card-date">
-                                    <h5><CalendarMonthIcon /> {value.created_at}</h5>
-                                    <p>{t('exclusive')}</p>
-                                </div>
-                                <div className="card-info">
-                                    <h2>{singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru}</h2>
-                                    <p>
-                                        {singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru.length > 200 ?
-                                            `${singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru.substring(0, 200)} ...` : singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru
-                                        }
-                                        {singleNews}
-                                    </p>
-                                    <button className="learn-more" onClick={handleOpen}
-                                    >
-                                        {t("seeMore")}
-                                    </button>
-                                </div>
-                                <div className="share-icons">
-                                    <RWebShare
-                                        style={{
-                                            position: 'absolute',
-                                            top: '50%',
-                                            left: '50%',
-                                            height: '30vh'
-                                        }}
-                                        data={{
-                                            text: "Please, share us ",
-                                            url: "http://localhost:3001/news",
-                                            title: "Do'stlarga ulash",
-                                        }}
-                                        onClick={() => console.log("shared successfully!")}
-                                    >
-                                        <ShareIcon style={{ fontSize: '2rem', color: '#726e6e ' }} />
-                                    </RWebShare>
-                                    {btns.map(valuee =>
-                                        <button className={"like-button " + (isLike ? "liked" : "")}
-                                            onClick={() => likeButtonComponent(value.id, decoded)}
-                                        >
-                                            {valuee.icons} | {value.like}
-                                        </button>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                    {/* --second card -- */}
-                    <div className="cards" >
-                        {/* --card-- */}
-                        {data.map(value =>
-                            <div className="card" data-aos="fade-right">
-                                <div className="card-img">
-                                    <img src={'https://skerio.uz/admin/images/news/' + value.image} />
-                                </div>
-                                <div className="card-desc">
-                                    <div className="card-date">
-                                        <h5><CalendarMonthIcon /> {value.created_at}</h5>
-                                    </div>
-                                    <Link to={"/news/fullnews/" + value.id}>
-                                        <div className="card-info">
-                                            <h2>{singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru} <ChevronRightIcon /> </h2>
-                                        </div>
-                                    </Link>
-                                    <div className="share-icons">
-                                        <RWebShare style={{
-                                            position: 'fixed',
-                                            top: '0',
-                                            left: '50%',
-                                            height: '30vh',
-                                            background: "#bf0000"
-                                        }}
-                                            data={{
-                                                text: "Please, share us",
-                                                url: "https://skerio.uz/news",
-                                                title: "Do'stlarga ulash",
-                                            }} onClick={() => console.log("shared successfully!")}>
-                                            <ShareIcon style={{ fontSize: '2rem', color: '#726e6e ' }} />
-                                        </RWebShare>
-                                        {
-                                            btns.map(valuee =>
-                                                <button className={(isLike ? "liked" : "like-button")} onClick={() => likeButtonComponent(value.id)}>
-                                                    {valuee.icons} | {value.likes[0]}
-                                                </button>
-                                            )
-                                        }
-                                    </div>
-                                </div>
-                            </div>
+                <div className="news-title" data-aos="fade-right">
+                    <div className="title-left">
+                        {buttons.map(btn =>
+                            <button
+                                className={btn.categ === category ? 'active-categ' : "buttons"} onClick={() => filterHandling(btn.categ)} key={btn.id}>
+                                {singleNews === 'uz' ? btn.name_uz : singleNews !== 'eng' ? btn.name_ru : btn.name_en}
+                            </button>
                         )}
                     </div>
                 </div>
-                <div className="body-right">
-                    <div className="main-body-right">
-                        {/* --card-- */}
-                        <div className="popular-news" data-aos="fade-top">
-                            <div className="news-title">
-                                <h3>{popularNews} {t("popularNews")}</h3>
-                            </div>
-
-                            {
-                                popular.map((value, index) => {
-                                    return (
-                                        // <>
-                                        <Link to={"/news/fullnews/" + value.id}>
-                                            <div className="news">
-                                                <p><span>{index + 1}</span> {singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru}  <ChevronRightIcon /></p>
-                                                <h5>{value.created_at}</h5>
-                                            </div>
-                                        </Link>
-                                        // </>
-                                    )
-                                })
-                            }
-                        </div>
-                        {/* --card-- */}
-                        {/* --card-- */}
-                        {status.map(value =>
-                            <div className="card" data-aos="fade-top">
+                <div className="main-body" >
+                    <div className="body-left">
+                        {data2.map((value) =>
+                            <div className="firts-card" data-aos="fade-right" key={value.id}>
                                 <div className="card-img">
                                     <img src={'https://skerio.uz/admin/images/news/' + value.image} />
                                 </div>
                                 <div className="card-desc">
                                     <div className="card-date">
                                         <h5><CalendarMonthIcon /> {value.created_at}</h5>
+                                        <p>{t('exclusive')}</p>
                                     </div>
-                                    <Link to={"/news/fullnews/" + value.id}>
-                                        <div className="card-info">
-                                            <h2>
-                                                {singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru.length > 40 ?
-                                                    `${singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru.substring(0, 57)} ...` : singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru
-                                                }  <ChevronRightIcon />
-                                            </h2>
-                                        </div>
-                                    </Link>
+                                    <div className="card-info">
+                                        <h2>{singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru}</h2>
+                                        <p>
+                                            {singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru.length > 200 ?
+                                                `${singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru.substring(0, 200)} ...` : singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru
+                                            }
+                                            {singleNews}
+                                        </p>
+                                        <button className="learn-more" onClick={handleOpen}
+                                        >
+                                            {t("seeMore")}
+                                        </button>
+                                    </div>
                                     <div className="share-icons">
-                                        <RWebShare style={{
-                                            position: 'absolute',
-                                            top: '50%',
-                                            left: '50%',
-                                            height: '30vh'
-                                        }}
+                                        <RWebShare
+                                            style={{
+                                                position: 'absolute',
+                                                top: '50%',
+                                                left: '50%',
+                                                height: '30vh'
+                                            }}
                                             data={{
-                                                text: "Please, share us",
-                                                url: "https://on.natgeo.com/2zHaNup",
+                                                text: "Please, share us ",
+                                                url: "http://localhost:3001/news",
                                                 title: "Do'stlarga ulash",
-                                            }} onClick={() => console.log("shared successfully!")}>
+                                            }}
+                                            onClick={() => console.log("shared successfully!")}
+                                        >
                                             <ShareIcon style={{ fontSize: '2rem', color: '#726e6e ' }} />
                                         </RWebShare>
                                         {btns.map(valuee =>
-                                            <button className={"like-button " + (isLike ? "liked" : "")} onClick={likeButtonComponent} >
-                                                {valuee.icons} | {value.likes}
+                                            <button className={"like-button " + (isLike ? "liked" : "")}
+                                                onClick={() => likeButtonComponent(value.id, decoded)}
+                                            >
+                                                {valuee.icons} | {value.like}
                                             </button>
                                         )}
                                     </div>
                                 </div>
                             </div>
                         )}
-                        <div>
-                            {data2.map(value =>
-                                <Modal
-                                    open={open}
-                                    onClose={handleClose}
-                                    aria-labelledby="modal-modal-title"
-                                    aria-describedby="modal-modal-description"
-                                >
-                                    <Box sx={style}>
-                                        <div className="modal-header" style={{ display: "flex", margin: "10px 0" }}>
-                                            <div className="modal-img" style={{ width: "400px" }}>
-                                                <img src={'https://skerio.uz/admin/images/news/' + value.image}
-                                                    style={{ objectFit: "contain" }}
-                                                />
-                                            </div>
-                                            <div className="first-title">
-                                                <h2
-                                                    style={{ width: "300px", marginLeft: "20px", fontSize: "25px", fontWeight: "600" }}
-                                                >{singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru}</h2>
-                                            </div>
+                        {/* --second card -- */}
+                        <div className="cards" >
+                            {/* --card-- */}
+                            {data.map(value =>
+                                <div className="card" data-aos="fade-right">
+                                    <div className="card-img">
+                                        <img src={'https://skerio.uz/admin/images/news/' + value.image} />
+                                    </div>
+                                    <div className="card-desc">
+                                        <div className="card-date">
+                                            <h5><CalendarMonthIcon /> {value.created_at}</h5>
                                         </div>
-                                        <div className="body">
-                                            <p style={{}}>
-                                                {singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru}
-                                            </p>
+                                        <Link to={"/news/fullnews/" + value.id}>
+                                            <div className="card-info">
+                                                <h2>{singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru} <ChevronRightIcon /> </h2>
+                                            </div>
+                                        </Link>
+                                        <div className="share-icons">
+                                            <RWebShare style={{
+                                                position: 'fixed',
+                                                top: '0',
+                                                left: '50%',
+                                                height: '30vh',
+                                                background: "#bf0000"
+                                            }}
+                                                data={{
+                                                    text: "Please, share us",
+                                                    url: "https://skerio.uz/news",
+                                                    title: "Do'stlarga ulash",
+                                                }} onClick={() => console.log("shared successfully!")}>
+                                                <ShareIcon style={{ fontSize: '2rem', color: '#726e6e ' }} />
+                                            </RWebShare>
+                                            {
+                                                btns.map(valuee =>
+                                                    <button className={(isLike ? "liked" : "like-button")} onClick={() => likeButtonComponent(value.id)}>
+                                                        {valuee.icons} | {value.likes[0]}
+                                                    </button>
+                                                )
+                                            }
                                         </div>
-                                    </Box>
-                                </Modal>
+                                    </div>
+                                </div>
                             )}
                         </div>
                     </div>
+                    <div className="body-right">
+                        <div className="main-body-right">
+                            {/* --card-- */}
+                            <div className="popular-news" data-aos="fade-top">
+                                <div className="news-title">
+                                    <h3>{popularNews} {t("popularNews")}</h3>
+                                </div>
+
+                                {
+                                    popular.map((value, index) => {
+                                        return (
+                                            // <>
+                                            <Link to={"/news/fullnews/" + value.id}>
+                                                <div className="news">
+                                                    <p><span>{index + 1}</span> {singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru}  <ChevronRightIcon /></p>
+                                                    <h5>{value.created_at}</h5>
+                                                </div>
+                                            </Link>
+                                            // </>
+                                        )
+                                    })
+                                }
+                            </div>
+                            {/* --card-- */}
+                            {/* --card-- */}
+                            {status.map(value =>
+                                <div className="card" data-aos="fade-top">
+                                    <div className="card-img">
+                                        <img src={'https://skerio.uz/admin/images/news/' + value.image} />
+                                    </div>
+                                    <div className="card-desc">
+                                        <div className="card-date">
+                                            <h5><CalendarMonthIcon /> {value.created_at}</h5>
+                                        </div>
+                                        <Link to={"/news/fullnews/" + value.id}>
+                                            <div className="card-info">
+                                                <h2>
+                                                    {singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru.length > 40 ?
+                                                        `${singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru.substring(0, 57)} ...` : singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru
+                                                    }  <ChevronRightIcon />
+                                                </h2>
+                                            </div>
+                                        </Link>
+                                        <div className="share-icons">
+                                            <RWebShare style={{
+                                                position: 'absolute',
+                                                top: '50%',
+                                                left: '50%',
+                                                height: '30vh'
+                                            }}
+                                                data={{
+                                                    text: "Please, share us",
+                                                    url: "https://on.natgeo.com/2zHaNup",
+                                                    title: "Do'stlarga ulash",
+                                                }} onClick={() => console.log("shared successfully!")}>
+                                                <ShareIcon style={{ fontSize: '2rem', color: '#726e6e ' }} />
+                                            </RWebShare>
+                                            {btns.map(valuee =>
+                                                <button className={"like-button " + (isLike ? "liked" : "")} onClick={likeButtonComponent} >
+                                                    {valuee.icons} | {value.likes}
+                                                </button>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                            <div>
+                                {data2.map(value =>
+                                    <Modal
+                                        open={open}
+                                        onClose={handleClose}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                    >
+                                        <Box sx={style}>
+                                            <div className="modal-header" style={{ display: "flex", margin: "10px 0", borderRadius: "10px" }}>
+                                                <div className="modal-img" style={{ width: "400px" }}>
+                                                    <img src={'https://skerio.uz/admin/images/news/' + value.image}
+                                                        style={{ objectFit: "contain", height: "100%" }}
+                                                    />
+                                                </div>
+                                                <div className="first-title">
+                                                    <h2
+                                                        style={{ width: "300px", marginLeft: "20px", fontSize: "25px", fontWeight: "600" }}
+                                                    >{singleNews === 'uz' ? value.title_uz : singleNews === 'eng' ? value.title_en : value.title_ru}</h2>
+                                                </div>
+                                            </div>
+                                            <div className="body">
+                                                <p style={{}}>
+                                                    {singleNews === 'uz' ? value.description_uz : singleNews === 'eng' ? value.description_en : value.description_ru}
+                                                </p>
+                                            </div>
+                                        </Box>
+                                    </Modal>
+                                )}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section >
             <div>
                 <Brands />
                 <Footer />
             </div>
-        </section >
+        </>
     )
 }

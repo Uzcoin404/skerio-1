@@ -18,6 +18,7 @@
     width: auto;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
     height: 100%;
     .wishlist-cart {
       width: 892px;
@@ -36,6 +37,7 @@
           height: auto;
           display: flex;
           width: 80px;
+          height: 80px;
           img {
             object-fit: contain;
           }
@@ -50,6 +52,12 @@
           p {
             font-weight: 600;
           }
+        }
+      }
+      .delete {
+        &:hover {
+          color: #bf0000;
+          cursor: pointer;
         }
       }
     }

@@ -1,60 +1,22 @@
-/* #map {
-  width: 100%;
-  height: auto;
-  .back {
-    margin: 141px 0 0 100px;
-    button {
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 24px;
-    }
-  }
-  .mainMapSection {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 161px 100px 0 100px;
-    .initMap {
-      flex: 0.5;
-      border-radius: 10px;
-      width: 500px;
-      height: 300px;
-      div {
-        width: 500px;
-        height: 300px;
-      }
-    }
-    .initDesc {
-      flex: 0.4;
-      .title {
-        margin-bottom: 30px;
-        h3 {
-          font-size: 36px;
-          line-height: 48px;
-          font-weight: 700;
-        }
-      }
-      .desc {
-        width: 474px;
-        p {
-          font-size: 20px;
-          font-weight: 500;
-        }
-      }
-    }
-  }
-}
- */
 .Mapping {
   .mapping {
     margin: 0 auto;
     margin-top: 130px;
     max-width: 1245px;
-    h2 {
-      margin: 25px 0;
-      font-size: 22px;
-      font-weight: 600;
+    .back {
+      width: 110px;
+      h2 {
+        margin: 25px 0;
+        font-size: 22px;
+        font-weight: 600;
+        &:hover {
+          background: rgba(191, 0, 0, 0.7);
+          width: 110px;
+          padding: 0.6px 0.6px;
+          border-radius: 3px;
+          color: #fff;
+        }
+      }
     }
     .about {
       display: flex;

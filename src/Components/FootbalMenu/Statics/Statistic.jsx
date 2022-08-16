@@ -80,17 +80,13 @@ export default function Statistic() {
 
   const { t } = useTranslation();
 
-  // const [data, setData] = useState([]);
   const [mainData, setMainData] = useState(data[0]);
-  const [category, setcategory] = useState('cristiano');
 
-  const Filtering = (item) => {
-    setcategory(item)
+  const Filtering = (btnId) => {
     let filtered = data.filter((item) => {
-      return item.cat === category
+      return item.cat === btnId
     })
     setMainData(...filtered);
-
   }
 
   return (
@@ -148,7 +144,7 @@ export default function Statistic() {
         {/* ----------------------------- */}
         <div className="static-right">
           {data?.map((item) => (
-            <div className={item.cat === category ? 'active-component' : "left-line"} onClick={() => Filtering(item.cat)}>
+            <div className={item.cat === mainData.cat ? 'active-component' : "left-line"} onClick={() => Filtering(item.cat)}>
               <div className="left-img">
                 <img src={item.img} />
               </div>

@@ -78,7 +78,6 @@ export default function Test() {
                 <div className="logo">
                     <Link to="/">{t("skerio")}</Link>
                 </div>
-
                 <div className={`toggle-menu ${toggleMenu ? "is-expended" : ""}`}>
                     <div className="closeMenu">
                         <CloseIcon onClick={changeMenu} style={{ color: 'white', }} />
@@ -93,9 +92,6 @@ export default function Test() {
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/shop">{t("shop")}</NavLink>
                         </li>
-                        {/* <li className="toggle-item" activeClass="active">
-                            <NavLink to="/tickets">{t("tickets")}</NavLink>
-                        </li> */}
                         <li className="toggle-item" activeClass="active">
                             <NavLink to="/table">{t("table")}</NavLink>
                         </li>

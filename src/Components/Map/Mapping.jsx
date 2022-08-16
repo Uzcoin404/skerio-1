@@ -23,10 +23,10 @@ function Mapping() {
 
     useEffect(() => {
         axios.get('https://skerio.uz/api/complex/' + id)
-        .then(function (response) {
-            setData(response.data)
-            setDefaultLocation({ lat: response?.data?.lat * 1, lng: response?.data?.lng * 1 })
-        })
+            .then(function (response) {
+                setData(response.data)
+                setDefaultLocation({ lat: response?.data?.lat * 1, lng: response?.data?.lng * 1 })
+            })
     }, [id]);
 
 
@@ -38,9 +38,11 @@ function Mapping() {
                 <Nav />
 
                 <div className="mapping">
-                    <Link to={'/areas'}>
-                        <h2><KeyboardArrowLeftIcon />  {t("back")}</h2>
-                    </Link>
+                    <div className="back">
+                        <Link to={'/areas'}>
+                            <h2><KeyboardArrowLeftIcon />  {t("back")}</h2>
+                        </Link>
+                    </div>
                     <div className="about">
                         <div className="map">
                             <YMaps>

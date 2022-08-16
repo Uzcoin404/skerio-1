@@ -2,6 +2,8 @@
   width: 100%;
   height: auto;
   margin-bottom: 10px;
+  max-width: 1450px;
+  margin: 0 auto;
   .card-title {
     margin: 50px 0 30px 100px;
     h2 {
@@ -11,9 +13,10 @@
     }
   }
   .mySwiper {
-    padding-left: 55px;
+    // padding-left: 55px;
     .store-card {
-      width: 350px;
+      max-width: 400px;
+      min-width: 250px;
       height: 360px;
       position: relative;
       background-color: #fff;
@@ -62,6 +65,7 @@
           overflow: auto !important;
           border-top-left-radius: 3px;
           border-bottom-left-radius: 3px;
+          z-index: 1000;
         }
       }
       .card-img {

@@ -9,12 +9,12 @@ import Brands from '../Brands/Brands';
 import Footer from '../Footer/Footer';
 import ShopCard from '../Shop/ShopCard/ShopCard';
 import Slider1 from '../Shop/Slider1/Slider1';
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import UserContext from '../../context/userContext';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import jwt_decode from "jwt-decode";
 import './shop.scss';
 import { LanguageContext } from "../../lanContext";
 
@@ -85,18 +85,25 @@ function Shop({ cart }) {
     const dispatch = useDispatch();
     const [cartCount, setCartCount] = useState(0);
     let count = 0;
+
     const [axiosErr, setAxiosErr] = useState("");
 
+    const getMyID = localStorage.getItem("token") !== null ? localStorage.getItem("token") : null;
 
     useEffect(() => {
-        axios.get(`https://skerio.uz/api/product/${sportTypeId}`).then(res => {
-            setData(res.data.data);
-            dispatch({ type: 'Add_to_products', payload: res.data.data });
-            setData2(res.data.data);
-        }).catch((err) => {
-            setAxiosErr("Error: " + err.message)
-        });
-    }, [dispatch, sportTypeId, cart]);
+        const config = {
+            headers: { Authorization: `Bearer ${getMyID}` }
+        };
+
+        axios(`https://skerio.uz/api/product/${sportTypeId}`, config)
+            .then(res => {
+                setData(res.data.data);
+                dispatch({ type: 'Add_to_products', payload: res.data.data });
+                setData2(res.data.data);
+            }).catch((err) => {
+                setAxiosErr("Error: " + err.message)
+            });
+    }, [dispatch, sportTypeId, cart, getMyID]);
 
     useEffect(() => {
         cart.forEach((item) => (
@@ -122,6 +129,7 @@ function Shop({ cart }) {
             item.name.toLowerCase().includes(search1)
         )
     }
+
 
     return (
         <section >
@@ -154,11 +162,6 @@ function Shop({ cart }) {
                             </div>
                         </div>
                         <div className="busket">
-                            {/* <Link to="/shop/cart">
-                                <Badge badgeContent={cartCount} color="primary">
-                                    <ShoppingCartCheckoutIcon style={{ fontSize: '1.8rem' }} />
-                                </Badge>
-                            </Link> */}
                             <IconButton aria-label="cart">
                                 <Link to="/shop/cart">
                                     <StyledBadge badgeContent={cartCount} color="secondary">
