@@ -17,6 +17,7 @@ import Brands from "../Brands/Brands";
 import Footer from "../Footer/Footer";
 import UserContext from '../../context/userContext';
 import { useGeolocated } from "react-geolocated";
+import AreaMap from "../Ymaps/Ymaps";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -33,6 +34,7 @@ export default function Areas() {
 
   const [data, setData] = useState([]);
   const [search1, setSearch1] = useState("");
+  console.log(data);
 
   useEffect(() => {
     axios
@@ -103,6 +105,7 @@ export default function Areas() {
         <Nav />
       </div>
       <div className="areas-wrapper">
+        <AreaMap />
         <div className="title-buttons">
           <div className="states">
             <label htmlFor=""><SortIcon /></label>
